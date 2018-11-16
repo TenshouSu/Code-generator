@@ -97,7 +97,7 @@ void print_info()
 
 int main( void )
 {
-    int verify = 1;
+    int verify = 1; // Veryfication by other reference functions
 
     // Average -------BLOCK2------- BEGIN
     double sum = 0.0, avg = 0.0;
@@ -136,10 +136,10 @@ int main( void )
           data_average_accumulate_step(verify,tempreal,sum,&sum);
           countnum = countnum + 1;
         }
-        time(&tmpcal_ptr);
-        tmp_ptr = localtime(&tmpcal_ptr);
         // Average -------BLOCK4------- END
 
+        time(&tmpcal_ptr);
+        tmp_ptr = localtime(&tmpcal_ptr);
         printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
         printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
         printf("Temperature: %.1f \n", tempreal);
@@ -151,6 +151,10 @@ int main( void )
           {
             data_average_division_step(verify,countnum,sum,&avg);
             printf("Average Temperature of %d seconds is: %.1f \n", interval, avg);
+          }
+          else
+          {
+            printf("error!! \n");
           }
           countnum = 0.0;
           sum = 0.0;
