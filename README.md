@@ -2,6 +2,6 @@
 
 CHANGES: <br />
 
-・Verified the situations of blocks <br />
-・Listed and commented parameter "int verify = 1" (line 100)<br />
-・Added "else" sentence (line 155-158) <br/>
+・Added variable of output named "double Outputdata" (line 109) <br />
+・Verified variable witch needed to be output to Outputdata (line 133,155,161)<br />
+・Added some comment <br/>
