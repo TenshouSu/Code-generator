@@ -1,4 +1,3 @@
 # Temperature with Average Calculation
 
-C
-dht11
+by using C and dht11
