@@ -13,8 +13,10 @@
 #include <string.h>
 #include <errno.h>
 #include <time.h>
+// Average -------BLOCK1------- BEGIN
 #include "data_average_accumulate.c"
 #include "data_average_division.c"
+// Average -------BLOCK1------- END
 
 
 #define MAXTIMINGS  85
@@ -75,10 +77,6 @@ void read_dht11_dat(double *tempreal)
     {
         *tempreal = (float)dht11_dat[2]+(float)(dht11_dat[3])/10;
     }
-    // else
-    // {
-    //     printf( "Data not good, skip\n" );
-    // }
 }
 
 
@@ -99,11 +97,14 @@ void print_info()
 
 int main( void )
 {
+    int verify = 1;
+
+    // Average -------BLOCK2------- BEGIN
     double sum = 0.0, avg = 0.0;
     double countnum = 0.0;
     int timepre = 0, timesec;
-    int verify = 1;
     int interval = 10;
+    // Average -------BLOCK2------- END
 
     double tempreal = 0.0;
     time_t tmpcal_ptr;
@@ -117,6 +118,7 @@ int main( void )
     print_info();
     while ( 1 )
     {
+        // Average -------BLOCK3------- BEGIN
         if(timepre == 0)
         {
           time(&tmpcal_ptr);
@@ -124,9 +126,11 @@ int main( void )
         }
         time(&tmpcal_ptr);
         timesec = tmpcal_ptr;
+        // Average -------BLOCK3------- END
 
         read_dht11_dat(&tempreal);
 
+        // Average -------BLOCK4------- BEGIN
         if(tempreal > 0.0)
         {
           data_average_accumulate_step(verify,tempreal,sum,&sum);
@@ -134,10 +138,13 @@ int main( void )
         }
         time(&tmpcal_ptr);
         tmp_ptr = localtime(&tmpcal_ptr);
+        // Average -------BLOCK4------- END
+
         printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
         printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
         printf("Temperature: %.1f \n", tempreal);
 
+        // Average -------BLOCK5------- BEGIN
         if(timesec-timepre == interval-1)
         {
           if(countnum > 0)
@@ -149,6 +156,8 @@ int main( void )
           sum = 0.0;
           timepre = 0;
         }
+        // Average -------BLOCK5------- END
+
         delay(1000);//wait ls to refresh
     }
 
