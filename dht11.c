@@ -100,13 +100,14 @@ int main( void )
     int verify = 1; // Veryfication by other reference functions
 
     // Average -------BLOCK2------- BEGIN
-    double sum = 0.0, avg = 0.0;
+    double sum = 0.0, avg = 0.0; // avg: Data of Average
     double countnum = 0.0;
     int timepre = 0, timesec;
-    int interval = 10;
+    int interval = 10; // Can be ustomized
     // Average -------BLOCK2------- END
 
-    double tempreal = 0.0;
+    double Outputdata; // Data for output
+    double tempreal = 0.0; // Data of Realtime
     time_t tmpcal_ptr;
     struct tm *tmp_ptr = NULL;
 
@@ -129,6 +130,7 @@ int main( void )
         // Average -------BLOCK3------- END
 
         read_dht11_dat(&tempreal);
+        Outputdata = tempreal;
 
         // Average -------BLOCK4------- BEGIN
         if(tempreal > 0.0)
@@ -142,19 +144,21 @@ int main( void )
         tmp_ptr = localtime(&tmpcal_ptr);
         printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
         printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
-        printf("Temperature: %.1f \n", tempreal);
+        printf("Temperature: %.1f \n", Outputdata);
 
         // Average -------BLOCK5------- BEGIN
-        if(timesec-timepre == interval-1)
+        if(timesec-timepre >= interval-1)
         {
           if(countnum > 0)
           {
             data_average_division_step(verify,countnum,sum,&avg);
-            printf("Average Temperature of %d seconds is: %.1f \n", interval, avg);
+            Outputdata = avg;
+            printf("Average Temperature of %d seconds is: %.1f \n", interval, Outputdata);
           }
           else
           {
             printf("error!! \n");
+            Outputdata = 0.0;
           }
           countnum = 0.0;
           sum = 0.0;
