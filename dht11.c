@@ -14,7 +14,6 @@
 #include <errno.h>
 #include <time.h>
 
-
 #define MAXTIMINGS  85
 #define DHTPIN      15  //DHT connect to TxD
 int dht11_dat[5] ={0,0,0,0,0};//store DHT11 data
@@ -24,7 +23,6 @@ void read_dht11_dat()
     uint8_t laststate = HIGH;
     uint8_t counter = 0;
     uint8_t j = 0,i;
-    double tempreal = 0.0;
 
     time_t tmpcal_ptr;
     struct tm *tmp_ptr = NULL;
@@ -76,10 +74,9 @@ void read_dht11_dat()
     if ( (j >= 40) &&
          (dht11_dat[4] == ( (dht11_dat[0] + dht11_dat[1] + dht11_dat[2] + dht11_dat[3]) & 0xFF) ) )
     {
-        tempreal = (float)dht11_dat[2]+(float)(dht11_dat[3])/10;
         printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
         printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
-        printf( "Temperature: %.1f C\n", tempreal );
+        printf( "Temperature: %d.%d C\n", dht11_dat[2], dht11_dat[3] );
     }
     else
     {
@@ -92,7 +89,7 @@ void print_info()
 {
     printf("\n");
     printf("|***************************|\n");
-    printf("|           DHT11 test      |\n");
+    printf("|           DHT11           |\n");
     printf("| --------------------------|\n");
     printf("| DHT11 connect to GPIO14   |\n");
     printf("| --------------------------|\n");
