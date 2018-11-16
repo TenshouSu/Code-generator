@@ -13,22 +13,20 @@
 #include <string.h>
 #include <errno.h>
 #include <time.h>
+#include "data_average_accumulate.c"
+#include "data_average_division.c"
+
 
 #define MAXTIMINGS  85
 #define DHTPIN      15  //DHT connect to TxD
 int dht11_dat[5] ={0,0,0,0,0};//store DHT11 data
 
-void read_dht11_dat()
+void read_dht11_dat(double *tempreal)
 {
     uint8_t laststate = HIGH;
     uint8_t counter = 0;
     uint8_t j = 0,i;
-
-    time_t tmpcal_ptr;
-    struct tm *tmp_ptr = NULL;
-    time(&tmpcal_ptr);
-
-    tmp_ptr = localtime(&tmpcal_ptr);
+    *tempreal = 0.0;
 
     dht11_dat[0] = dht11_dat[1] = dht11_dat[2] = dht11_dat[3] = dht11_dat[4] = 0;
 
@@ -71,17 +69,16 @@ void read_dht11_dat()
     }
     //check we read 40 bits(8bit x 5) +verify checksum in the last byte
     //print it out if data is good
+
     if ( (j >= 40) &&
          (dht11_dat[4] == ( (dht11_dat[0] + dht11_dat[1] + dht11_dat[2] + dht11_dat[3]) & 0xFF) ) )
     {
-        printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
-        printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
-        printf( "Temperature: %d.%d C\n", dht11_dat[2], dht11_dat[3] );
+        *tempreal = (float)dht11_dat[2]+(float)(dht11_dat[3])/10;
     }
-    else
-    {
-        printf( "Data not good, skip\n" );
-    }
+    // else
+    // {
+    //     printf( "Data not good, skip\n" );
+    // }
 }
 
 
@@ -89,7 +86,7 @@ void print_info()
 {
     printf("\n");
     printf("|***************************|\n");
-    printf("|           DHT11           |\n");
+    printf("|           DHT11 test      |\n");
     printf("| --------------------------|\n");
     printf("| DHT11 connect to GPIO14   |\n");
     printf("| --------------------------|\n");
@@ -102,6 +99,16 @@ void print_info()
 
 int main( void )
 {
+    double sum = 0.0, avg = 0.0;
+    double countnum = 0.0;
+    int timepre = 0, timesec;
+    int verify = 1;
+    int interval = 10;
+
+    double tempreal = 0.0;
+    time_t tmpcal_ptr;
+    struct tm *tmp_ptr = NULL;
+
     if ( wiringPiSetup() == -1 )
     {
         fprintf(stderr,"Can't init wiringPi: %s\n",strerror(errno));
@@ -110,7 +117,38 @@ int main( void )
     print_info();
     while ( 1 )
     {
-        read_dht11_dat();
+        if(timepre == 0)
+        {
+          time(&tmpcal_ptr);
+          timepre = tmpcal_ptr;
+        }
+        time(&tmpcal_ptr);
+        timesec = tmpcal_ptr;
+
+        read_dht11_dat(&tempreal);
+
+        if(tempreal > 0.0)
+        {
+          data_average_accumulate_step(verify,tempreal,sum,&sum);
+          countnum = countnum + 1;
+        }
+        time(&tmpcal_ptr);
+        tmp_ptr = localtime(&tmpcal_ptr);
+        printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
+        printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
+        printf("Temperature: %.1f \n", tempreal);
+
+        if(timesec-timepre == interval-1)
+        {
+          if(countnum > 0)
+          {
+            data_average_division_step(verify,countnum,sum,&avg);
+            printf("Average Temperature of %d seconds is: %.1f \n", interval, avg);
+          }
+          countnum = 0.0;
+          sum = 0.0;
+          timepre = 0;
+        }
         delay(1000);//wait ls to refresh
     }
 
