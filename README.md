@@ -1,4 +1,4 @@
-# Temperature with Average Calculation var dht11
+# Temperature with Average Calculation via dht11
 
 CHANGES: <br />
 
