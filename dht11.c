@@ -74,6 +74,10 @@ void read_dht11_dat(double *tempreal)
     {
         *tempreal = (float)dht11_dat[2]+(float)(dht11_dat[3])/10;
     }
+    else
+    {
+        *tempreal = -1000.0; // Signal of bad data
+    }
 }
 
 
@@ -97,14 +101,16 @@ int main( void )
     int verify = 1; // Veryfication by other reference functions
 
     int timepre, timesec;
-    int period = 30; // Data collection period
+    int period = 20; // Data collection period <<<<<CUSTOMIZE>>>>>
 
     double outputdata; // Data for output
     double tempreal = 0.0; // Data of Realtime
     time_t tmpcal_ptr;
     struct tm *tmp_ptr = NULL;
 
+    // average ----------BLOCK 1---------- BEGIN
     double sum = 0.0, countnum = 0.0;
+    // average ----------BLOCK 1---------- END
 
     if ( wiringPiSetup() == -1 )
     {
@@ -115,21 +121,30 @@ int main( void )
     while ( 1 )
     {
         time(&tmpcal_ptr);
-        timepre = tmpcal_ptr;
-        timesec = tmpcal_ptr;
+        timepre = tmpcal_ptr; // Begin timestamp
+        timesec = tmpcal_ptr; // real-time timestamp
 
-        while ((timesec-timepre)<=period-1)
+        while ((timesec-timepre)<=period)
         {
           read_dht11_dat(&tempreal);
+
           outputdata = tempreal;
 
           time(&tmpcal_ptr);
           tmp_ptr = localtime(&tmpcal_ptr);
-          printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
-          printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
-          printf("Temperature: %.1f \n", outputdata);
+          printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);            printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
+          if (tempreal > -300)
+          {
+            printf("Temperature: %.1f \n", outputdata);
+          }
+          else
+          {
+            printf("Data not good, skip \n");
+          }
 
+          // average ----------BLOCK 2---------- BEGIN
           data_average(verify, tempreal, timepre, timesec, &sum, &countnum, &outputdata);
+          // average ----------BLOCK 1---------- END
 
           delay(1000);//wait ls to refresh
 
