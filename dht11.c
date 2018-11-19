@@ -13,8 +13,7 @@
 #include <string.h>
 #include <errno.h>
 #include <time.h>
-#include "data_average_accumulate.c"
-#include "data_average_division.c"
+// #include "average.c"
 
 
 #define MAXTIMINGS  85
@@ -75,10 +74,6 @@ void read_dht11_dat(double *tempreal)
     {
         *tempreal = (float)dht11_dat[2]+(float)(dht11_dat[3])/10;
     }
-    // else
-    // {
-    //     printf( "Data not good, skip\n" );
-    // }
 }
 
 
@@ -99,13 +94,13 @@ void print_info()
 
 int main( void )
 {
-    double sum = 0.0, avg = 0.0;
-    double countnum = 0.0;
-    int timepre = 0, timesec;
-    int verify = 1;
-    int interval = 10;
+    // int verify = 1; // Veryfication by other reference functions
 
-    double tempreal = 0.0;
+    int timepre, timesec;
+    int period = 10; // Data collection period
+
+    double outputdata; // Data for output
+    double tempreal = 0.0; // Data of Realtime
     time_t tmpcal_ptr;
     struct tm *tmp_ptr = NULL;
 
@@ -117,40 +112,27 @@ int main( void )
     print_info();
     while ( 1 )
     {
-        if(timepre == 0)
-        {
-          time(&tmpcal_ptr);
-          timepre = tmpcal_ptr;
-        }
         time(&tmpcal_ptr);
+        timepre = tmpcal_ptr;
         timesec = tmpcal_ptr;
 
-        read_dht11_dat(&tempreal);
-
-        if(tempreal > 0.0)
+        while ((timesec-timepre)<=period-1)
         {
-          data_average_accumulate_step(verify,tempreal,sum,&sum);
-          countnum = countnum + 1;
-        }
-        time(&tmpcal_ptr);
-        tmp_ptr = localtime(&tmpcal_ptr);
-        printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
-        printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
-        printf("Temperature: %.1f \n", tempreal);
+          read_dht11_dat(&tempreal);
+          outputdata = tempreal;
 
-        if(timesec-timepre == interval-1)
-        {
-          if(countnum > 0)
-          {
-            data_average_division_step(verify,countnum,sum,&avg);
-            printf("Average Temperature of %d seconds is: %.1f \n", interval, avg);
-          }
-          countnum = 0.0;
-          sum = 0.0;
-          timepre = 0;
+          time(&tmpcal_ptr);
+          tmp_ptr = localtime(&tmpcal_ptr);
+          printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
+          printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
+          printf("Temperature: %.1f \n", outputdata);
+
+          delay(1000);//wait ls to refresh
+
+          time(&tmpcal_ptr);
+          timesec = tmpcal_ptr; // Record timestamp
         }
-        delay(1000);//wait ls to refresh
+        printf("Turn End \n");
     }
-
     return(0);
 }
