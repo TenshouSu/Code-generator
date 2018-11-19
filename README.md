@@ -1,3 +1,4 @@
-# Temperature with Average Calculation
+# Temperature with Average Calculation via dht11
 
-by using C and dht11
+Changes: <br />
+・Separated every functions to corresponding numbers of files.
