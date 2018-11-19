@@ -7,8 +7,8 @@
 
 void data_average(int verify, double tempreal, int timepre, int timesec, double *sum, double *countnum, double *outputdata)
 {
-  double tempsum, avg = 0.0; // avg: Data of Average
-  int interval = 10;
+  double tempsum, avg = -1000.0; // tempsum: Tempdata of sum; avg: Data of Average
+  int interval = 10; // <<<<<CUSTOMIZE>>>>>
 
   tempsum = *sum;
 
@@ -22,16 +22,25 @@ void data_average(int verify, double tempreal, int timepre, int timesec, double 
     }
     else
     {
-      printf("error! \n");
-      avg = 0.0;
-      *outputdata = avg;
+      if ((timesec-timepre) == 0)
+      {
+        data_average_accumulate_step(verify,tempreal,tempsum,&tempsum);
+        *sum = tempsum;
+        *countnum = *countnum + 1;
+      }
+      else
+      {
+        printf("error! \n");
+        avg = -1000.0;
+        *outputdata = avg;
+      }
     }
     *countnum = 0.0;
     *sum = 0.0;
   }
   else
   {
-    if(tempreal>0.0)
+    if(tempreal>-300)
     {
       data_average_accumulate_step(verify,tempreal,tempsum,&tempsum);
       *sum = tempsum;
