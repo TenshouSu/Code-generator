@@ -144,7 +144,7 @@ int main( void )
 
           // average ----------BLOCK 2---------- BEGIN
           data_average(verify, tempreal, timepre, timesec, &sum, &countnum, &outputdata);
-          // average ----------BLOCK 1---------- END
+          // average ----------BLOCK 2---------- END
 
           delay(1000);//wait ls to refresh
 
