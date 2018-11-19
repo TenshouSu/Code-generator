@@ -13,7 +13,7 @@
 #include <string.h>
 #include <errno.h>
 #include <time.h>
-// #include "average.c"
+#include "average.c"
 
 
 #define MAXTIMINGS  85
@@ -94,15 +94,17 @@ void print_info()
 
 int main( void )
 {
-    // int verify = 1; // Veryfication by other reference functions
+    int verify = 1; // Veryfication by other reference functions
 
     int timepre, timesec;
-    int period = 10; // Data collection period
+    int period = 30; // Data collection period
 
     double outputdata; // Data for output
     double tempreal = 0.0; // Data of Realtime
     time_t tmpcal_ptr;
     struct tm *tmp_ptr = NULL;
+
+    double sum = 0.0, countnum = 0.0;
 
     if ( wiringPiSetup() == -1 )
     {
@@ -127,12 +129,14 @@ int main( void )
           printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
           printf("Temperature: %.1f \n", outputdata);
 
+          data_average(verify, tempreal, timepre, timesec, &sum, &countnum, &outputdata);
+
           delay(1000);//wait ls to refresh
 
           time(&tmpcal_ptr);
           timesec = tmpcal_ptr; // Record timestamp
         }
-        printf("Turn End \n");
+        printf("Turn End \n"); // Print the end of turn (FOR TEST)
     }
     return(0);
 }
