@@ -13,8 +13,12 @@
 #include <string.h>
 #include <errno.h>
 #include <time.h>
+// average ----------BLOCK 1---------- BEGIN
 #include "average.c"
-
+// average ----------BLOCK 1---------- END
+// local ----------BLOCK 1---------- BEGIN
+#include "local.c"
+// local ----------BLOCK 1---------- END
 
 #define MAXTIMINGS  85
 #define DHTPIN      15  //DHT connect to TxD
@@ -100,6 +104,8 @@ int main( void )
 {
     int verify = 1; // Veryfication by other reference functions
 
+    int flag = 1; // Data storage flag
+
     int timepre, timesec;
     int period = 20; // Data collection period <<<<<CUSTOMIZE>>>>>
 
@@ -108,9 +114,9 @@ int main( void )
     time_t tmpcal_ptr;
     struct tm *tmp_ptr = NULL;
 
-    // average ----------BLOCK 1---------- BEGIN
+    // average ----------BLOCK 2---------- BEGIN
     double sum = 0.0, countnum = 0.0;
-    // average ----------BLOCK 1---------- END
+    // average ----------BLOCK 2---------- END
 
     if ( wiringPiSetup() == -1 )
     {
@@ -122,34 +128,39 @@ int main( void )
     {
         time(&tmpcal_ptr);
         timepre = tmpcal_ptr; // Begin timestamp
-        timesec = tmpcal_ptr; // real-time timestamp
+        timesec = tmpcal_ptr; // Real-time timestamp
 
         while ((timesec-timepre)<=period)
         {
-          read_dht11_dat(&tempreal);
+            read_dht11_dat(&tempreal);
 
-          outputdata = tempreal;
+            outputdata = tempreal;
 
-          time(&tmpcal_ptr);
-          tmp_ptr = localtime(&tmpcal_ptr);
-          printf("%d.%d.%d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);            printf("%d:%d:%d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
-          if (tempreal > -300)
-          {
-            printf("Temperature: %.1f \n", outputdata);
-          }
-          else
-          {
-            printf("Data not good, skip \n");
-          }
+            time(&tmpcal_ptr);
+            tmp_ptr = localtime(&tmpcal_ptr);
+            printf("%d.%02d.%02d ", (1900+tmp_ptr->tm_year), (1+tmp_ptr->tm_mon), tmp_ptr->tm_mday);
+            printf("%02d:%02d:%02d ", tmp_ptr->tm_hour, tmp_ptr->tm_min, tmp_ptr->tm_sec);
+            if (tempreal > -300)
+            {
+              printf("Temperature: %.1f C\n", outputdata);
+            }
+            else
+            {
+              printf("Data not good, skip \n");
+            }
 
-          // average ----------BLOCK 2---------- BEGIN
-          data_average(verify, tempreal, timepre, timesec, &sum, &countnum, &outputdata);
-          // average ----------BLOCK 2---------- END
+            // average ----------BLOCK 3---------- BEGIN
+            data_average(verify, tempreal, timepre, timesec, &sum, &countnum, &outputdata, &flag);
+            // average ----------BLOCK 3---------- END
 
-          delay(1000);//wait ls to refresh
+            // local ----------BLOCK 2---------- BEGIN
+            local(flag, outputdata);
+            // local ----------BLOCK 2---------- END
 
-          time(&tmpcal_ptr);
-          timesec = tmpcal_ptr; // Record timestamp
+            delay(1000);//wait ls to refresh
+
+            time(&tmpcal_ptr);
+            timesec = tmpcal_ptr; // Record timestamp
         }
         printf("Turn End \n"); // Print the end of turn (FOR TEST)
     }

@@ -8,38 +8,41 @@ void local(int flag, double outputdata)
 {
   if (flag == 1)
   {
+    int i=0;
     time_t tmpcal_ptr;
     struct tm *tmp_ptr = NULL;
 
     time(&tmpcal_ptr);
     tmp_ptr = localtime(&tmpcal_ptr);
+    int date[6] = {(1900+tmp_ptr->tm_year),(1+tmp_ptr->tm_mon),tmp_ptr->tm_mday,tmp_ptr->tm_hour,tmp_ptr->tm_min,tmp_ptr->tm_sec};
 
     const char *filename = "./aout.txt"; // Output path <<<<<CUSTOMIZE>>>>>
-
     FILE *p = fopen(filename,"ab");
-    int date[6] = {(1900+tmp_ptr->tm_year),(1+tmp_ptr->tm_mon),tmp_ptr->tm_mday,tmp_ptr->tm_hour,tmp_ptr->tm_min,tmp_ptr->tm_sec};
+
     char ch[4];
-    for(int i=0; i<6; ++i)
+    for(i=0;i<6;++i)
     {
-      if(i<2)
+      if(i == 0)
       {
-        sprintf(ch, "%d.", date[i]);
+        sprintf(ch, "%d", date[i]);
+        fwrite(ch, 1, sizeof(ch), p);
+        char s[] = ".";
+        fwrite(s, 1, sizeof(s), p);
+      }
+      if(i<2&&i>0)
+      {
+        sprintf(ch, "%02d.", date[i]);
         fwrite(ch, 1, sizeof(ch), p);
       }
       if(i == 2 || i == 5)
       {
-        sprintf(ch, "%d ", date[i]);
+        sprintf(ch, "%02d ", date[i]);
         fwrite(ch, 1, sizeof(ch), p);
       }
       if(i<5 && i>2)
       {
-        sprintf(ch, "%d:", date[i]);
+        sprintf(ch, "%02d:", date[i]);
         fwrite(ch, 1, sizeof(ch), p);
-      }
-      if(i == 0)
-      {
-        char s[] = ".";
-        fwrite(s, 1, sizeof(s), p);
       }
     }
 
@@ -49,5 +52,4 @@ void local(int flag, double outputdata)
 
     fclose(p);
   }
-  return 0;
 }
