@@ -2,5 +2,4 @@
 
 Changes: <br />
 ・Modified dht11 driver file. <br />
-・Modified average function file. <br />
-・Added lcoal function file. <br />
+・Modified filename which need to be save in lcoal function file, changed the filename.txt to filename_timestamp.txt. <br />
