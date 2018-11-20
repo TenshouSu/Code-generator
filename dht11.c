@@ -154,7 +154,7 @@ int main( void )
             // average ----------BLOCK 3---------- END
 
             // local ----------BLOCK 2---------- BEGIN
-            local(flag, outputdata);
+            local(flag, timepre, outputdata);
             // local ----------BLOCK 2---------- END
 
             delay(1000);//wait ls to refresh
