@@ -4,7 +4,7 @@
 #include <string.h>
 #include <time.h>
 
-void local(double outputdata, int flag)
+void local(int flag, double outputdata)
 {
   if (flag == 1)
   {
