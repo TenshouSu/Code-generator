@@ -16,7 +16,7 @@
 ・ pip & Jinja2 (Docker): <br />
 &emsp; https://qiita.com/RyosukeKamei/items/eca9687162b7fe122094 <br />
 &emsp; http://www.python.ambitious-engineer.com/archives/760 <br />
-・ wiringpi library (Raspbeery Pi): <br />
+・ Wiringpi library (Raspbeery Pi): <br />
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
 ## Changes from #1:
