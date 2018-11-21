@@ -5,6 +5,8 @@
 __metaclass__ = type
 
 import os
+import time
+import shutil
 from jinja2 import Template, Environment, FileSystemLoader
 
 
@@ -29,6 +31,9 @@ class xmltocode:
             self.words.append(lines)
         self.filedata.close()
 
+###------------------------------------------------------------------------------###
+### ----- Read XML File (.system) in Sirius and find out data information. ----- ###
+###------------------------------------------------------------------------------###
 
 #--- (Private Attribute) Separate the data in sequence self.words and put the data into different sequences
     def __getData(self):
@@ -185,7 +190,7 @@ class xmltocode:
 
 
 #--- (Private Attribute) Get the file name, template name and template data from numbers in self.translate
-    def getTemplateData(self):
+    def __getTemplateData(self):
         namenum = 0
         self.__execSequence()
         # Read self.translate and get the sensor name
@@ -214,6 +219,83 @@ class xmltocode:
                 self.tplseq.append(buffseq)
                 self.dataseq.append(databuffseq)
 
+###--------------------------------------------------------------###
+### ----- Find out Lustre template and Tranlate them to C. ----- ###
+###--------------------------------------------------------------###
+
+#--- (Private Attribute)(Function) Find out node name.
+    def __findNodeName(self, disp_text, nodename):
+        start = 0
+        for num in range(disp_text.count('node ')):
+            sindex = disp_text[start:].find('node ')
+            eindex = disp_text[start:].find('(verify')
+            keyword = str(disp_text[start+sindex+5:start+eindex])
+            nodename.append(keyword)
+            start = eindex+7
+
+
+#--- (Private Attribute)(Function) Translate lustre code to C.
+    def __lusToCode(self, lusname, nodename):
+        for node in nodename:
+            status = 'lv6 ' + lusname + ' -n ' + node + ' -2c'
+            print status
+            print os.system(status)
+
+
+#--- (Private Attribute)(Function) Find out useful lustre code.
+    def __findUseful(self, tempname, nodename):
+        for node in nodename:
+            cname = tempname + '_' + node + '.c'
+            hname = tempname + '_' + node + '.h'
+            newcname = './Execute/' + tempname + '_' + node + '.c'
+            newhname = './Execute/' + tempname + '_' + node + '.h'
+            shutil.copy(cname,newcname)
+            shutil.copy(hname,newhname)
+
+
+#--- Find out Lustre template and translate them to C and delete useless files.
+    def lusTemptoC(self):
+        self.__getTemplateData()
+        secnum = 0
+        for sec in self.dataseq:
+            tempnum = 0
+            for temp in sec:
+                # Find name of lustre template.
+                tempname = self.tplseq[secnum][tempnum]
+                tplname = tempname + '_lus.tpl'
+                txtname = tempname + '.txt'
+                lusname = tempname + '.lus'
+                # Use template to create lustre file.
+                try:
+                    nodename = []
+                    env = Environment(loader=FileSystemLoader('./Template'))
+                    template = env.get_template(tplname)
+                    disp_text = template.render(temp)
+                    self.__findNodeName(disp_text, nodename)
+                    f = open(txtname,'w')
+                    f.write(disp_text)
+                    f.close()
+                    os.rename(txtname,lusname)
+                    self.__lusToCode(lusname, nodename)
+                    self.__findUseful(tempname, nodename)
+                except:
+                    pass
+                tempnum += 1
+            secnum += 1
+
+        # Copy lustre_types.h and lustre_consts.h
+        others = ['lustre_types.h','lustre_consts.h']
+        for name in others:
+            shutil.copy(name,'./Execute/'+name)
+
+        # Remove needless files
+        f_list = os.listdir('.')
+        for i in f_list:
+            if os.path.splitext(i)[1] == '.c' or os.path.splitext(i)[1] == '.h' or os.path.splitext(i)[1] == '.sh':
+                try:
+                    os.remove(i)
+                except OSError:
+                    pass
 
 # #--- Read the template and generate files
 #     def generateFile(self, format):
@@ -269,7 +351,4 @@ if __name__ == '__main__':
     f = xmltocode()
     # Read xml file in Eclipse Sirius.
     f.readxml('/workdir/runtime-New_configuration/com.fukuda.kyudai.system.sample/My.system')
-    f.getTemplateData()
-    print f.nameseq
-    print f.tplseq
-    print f.dataseq
+    f.lusTemptoC()
