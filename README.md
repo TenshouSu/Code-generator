@@ -20,4 +20,5 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
 ## Changes from #1:
-・ <br />
+・ Modified path of xml in Main Program: <br />
+&emsp; from /Users/ -> /workdir/ <br />
