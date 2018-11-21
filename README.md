@@ -9,6 +9,8 @@
 ・ Lustre Template.
 
 ## Configuration
+・ Eclipse Sirius (PC): <br/>
+&emsp; http://www.eclipse.org/sirius/getstarted.html <br />
 ・ Docker (PC): <br />
 &emsp; https://www.docker.com/ <br />
 ・ Lustre v6 (Docker): <br />
