@@ -185,7 +185,7 @@ class xmltocode:
 
 
 #--- (Private Attribute) Get the file name, template name and template data from numbers in self.translate
-    def __getTemplateData(self):
+    def getTemplateData(self):
         namenum = 0
         self.__execSequence()
         # Read self.translate and get the sensor name
@@ -215,57 +215,61 @@ class xmltocode:
                 self.dataseq.append(databuffseq)
 
 
-#--- Read the template and generate files
-    def generateFile(self, format):
-        self.__getTemplateData()
-        # print self.nameseq
-        # print self.tplseq
-        # print self.dataseq
-        # Read Template and Generate Code
-        for mainnum in range(len(self.tplseq)):
-            for subnum in range(len(self.tplseq[mainnum])):
-                # Create Sensor Template
-                if subnum == 0:
-                    fileName = 'sensor.txt'
-                    confName = 'sensor.tpl'
-                # Create Function Template
-                else:
-                    fileName = 'function.txt'
-                    confName = 'function.tpl'
-                    extends = r'{% extends "sensor.tpl" %}'
-                # Find template and use these template to generate code
-                env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
-                tplname = self.tplseq[mainnum][subnum] + '.tpl'
-                template = env.get_template(tplname)
-                data = self.dataseq[mainnum][subnum]
-                disp_text = template.render(data)
-                if subnum <= 1:
-                    file = open(fileName, 'w')
-                if subnum == 1:
-                    file.write(extends)
-                    file.write('\n')
-                file.write(disp_text)
-                if subnum == 0 or subnum == len(self.tplseq[mainnum]) - 1:
-                    os.rename(fileName,confName)
-                    file.close()
-            # Combine sensor and function template to generate executive file
-            env = Environment(loader=FileSystemLoader('.'), trim_blocks=True)
-            template = env.get_template('function.tpl')
-            disp_text = template.render()
-            fileName = self.nameseq[mainnum] + '.txt'
-            confName = self.nameseq[mainnum] + '.' + str(format)  #option
-            file = open(fileName, 'w')
-            file.write(disp_text)
-            os.rename(fileName,confName)
-            file.close()
-            # Remove sensor and function template
-            os.remove('./function.tpl')
-            os.remove('./sensor.tpl')
-            print ' Code Generating Success! \n'
+# #--- Read the template and generate files
+#     def generateFile(self, format):
+#         self.__getTemplateData()
+#         # print self.nameseq
+#         # print self.tplseq
+#         # print self.dataseq
+#         # Read Template and Generate Code
+#         for mainnum in range(len(self.tplseq)):
+#             for subnum in range(len(self.tplseq[mainnum])):
+#                 # Create Sensor Template
+#                 if subnum == 0:
+#                     fileName = 'sensor.txt'
+#                     confName = 'sensor.tpl'
+#                 # Create Function Template
+#                 else:
+#                     fileName = 'function.txt'
+#                     confName = 'function.tpl'
+#                     extends = r'{% extends "sensor.tpl" %}'
+#                 # Find template and use these template to generate code
+#                 env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
+#                 tplname = self.tplseq[mainnum][subnum] + '.tpl'
+#                 template = env.get_template(tplname)
+#                 data = self.dataseq[mainnum][subnum]
+#                 disp_text = template.render(data)
+#                 if subnum <= 1:
+#                     file = open(fileName, 'w')
+#                 if subnum == 1:
+#                     file.write(extends)
+#                     file.write('\n')
+#                 file.write(disp_text)
+#                 if subnum == 0 or subnum == len(self.tplseq[mainnum]) - 1:
+#                     os.rename(fileName,confName)
+#                     file.close()
+#             # Combine sensor and function template to generate executive file
+#             env = Environment(loader=FileSystemLoader('.'), trim_blocks=True)
+#             template = env.get_template('function.tpl')
+#             disp_text = template.render()
+#             fileName = self.nameseq[mainnum] + '.txt'
+#             confName = self.nameseq[mainnum] + '.' + str(format)  #option
+#             file = open(fileName, 'w')
+#             file.write(disp_text)
+#             os.rename(fileName,confName)
+#             file.close()
+#             # Remove sensor and function template
+#             os.remove('./function.tpl')
+#             os.remove('./sensor.tpl')
+#             print ' Code Generating Success! \n'
 
 
 ## Execute
 if __name__ == '__main__':
     f = xmltocode()
-    f.readxml('/Users/Tenshou_Su/runtime-New_configuration/com.fukuda.kyudai.system.sample/My.system')
-    f.generateFile('py')
+    # Read xml file in Eclipse Sirius.
+    f.readxml('/workdir/runtime-New_configuration/com.fukuda.kyudai.system.sample/My.system')
+    f.getTemplateData()
+    print f.nameseq
+    print f.tplseq
+    print f.dataseq
