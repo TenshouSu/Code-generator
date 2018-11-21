@@ -3,7 +3,7 @@
 ・ Main Program of Code Generator. <br />
 ・ File folder and Templates in it. <br />
 
-## Also 3 kinds of Template:
+## 3 kinds of Template:
 ・ Device and Function driver template. <br />
 ・ Function block template. <br />
 ・ Lustre Template.
