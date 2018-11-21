@@ -1,7 +1,7 @@
 # Code-generator
 ## 2 kinds of files in this program:
 ・ Main Program of Code Generator. <br />
-・ File folder and Template in it. <br />
+・ File folder and Templates in it. <br />
 
 ## Also 3 kinds of Template:
 ・ Device and Function driver template. <br />
