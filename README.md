@@ -11,7 +11,7 @@
 ## Configuration
 ・ Docker (PC). <br />
 ・ pip & Jinja2 (Docker): <br />
-&nbsp;&nbsp; https://qiita.com/RyosukeKamei/items/eca9687162b7fe122094 <br />
+&emsp; https://qiita.com/RyosukeKamei/items/eca9687162b7fe122094 <br />
 &nbsp;&nbsp; http://www.python.ambitious-engineer.com/archives/760 <br />
 ・ Lustre v6 (Docker): <br />
 &nbsp;&nbsp; http://www-verimag.imag.fr/DIST-TOOLS/SYNCHRONE/lustre-v6/#outline-container-sec-2 <br />
