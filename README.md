@@ -20,7 +20,7 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
 ## Changes from #2:
-・ Added 4 functions to find out lustre templates and translate them to C code and save the C files in Execute folder <br />
-&emsp; From line 222 to 298 <br />
-・ Modified some comment to make all functions be easy to see. <br />
-&emsp; just line 222 to 224 <br />
+・ Added 4 functions to find out lustre templates and translate them to C code and save the C files in Execute folder: <br />
+&emsp; From line 222 to 298. <br />
+・ Modified some comment to make all functions be easy to see: <br />
+&emsp; Just like line 222 to 224. <br />
