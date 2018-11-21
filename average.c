@@ -12,56 +12,37 @@ void data_average(int verify, double tempreal, int timepre, int timesec, double 
 
   tempsum = *sum;
 
-  if((timesec-timepre)%interval == 0)
+  if(tempreal>-300)
+  {
+    data_average_accumulate_step(verify,tempreal,tempsum,&tempsum);
+    *sum = tempsum;
+    *countnum = *countnum + 1;
+    *flag = 0;
+  }
+  else
+  {
+    *flag = 0;
+  }
+
+  if((timesec-timepre)%interval == 0 && (timesec-timepre) != 0)
   {
     if(*countnum > 0.0)
     {
       data_average_division_step(verify,*countnum,tempsum,&avg);
       *outputdata = avg;
-      printf("Average Temperature of %d seconds is: %.1f C\n", interval, avg);
+      printf("Average of %d seconds is: %.1f \n", interval, avg);
       *countnum = 0.0;
       *sum = 0.0;
       *flag = 1;
     }
     else
     {
-      if ((timesec-timepre) == 0)
-      {
-        if(tempreal>-300)
-        {
-          data_average_accumulate_step(verify,tempreal,tempsum,&tempsum);
-          *sum = tempsum;
-          *countnum = *countnum + 1;
-          *flag = 0;
-        }
-        else
-        {
-          *flag = 0;
-        }
-      }
-      else
-      {
-        printf("error! \n");
-        avg = -1000.0; // Bad data
-        *outputdata = avg;
-        *countnum = 0.0;
-        *sum = 0.0;
-        *flag = 1;
-      }
-    }
-  }
-  else
-  {
-    if(tempreal>-300)
-    {
-      data_average_accumulate_step(verify,tempreal,tempsum,&tempsum);
-      *sum = tempsum;
-      *countnum = *countnum + 1;
-      *flag = 0;
-    }
-    else
-    {
-      *flag = 0;
+      printf("error! \n");
+      avg = -1000.0; // Bad data
+      *outputdata = avg;
+      *countnum = 0.0;
+      *sum = 0.0;
+      *flag = 1;
     }
   }
 }

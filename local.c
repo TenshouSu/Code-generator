@@ -53,7 +53,7 @@ void local(int flag, int timepre, double outputdata)
     }
 
     char str[10];
-    sprintf(str, "%.1f C \n", outputdata);
+    sprintf(str, "%.1f \n", outputdata);
     fwrite(str, 1, sizeof(str), p);
 
     fclose(p);

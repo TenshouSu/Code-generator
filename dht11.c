@@ -107,7 +107,7 @@ int main( void )
     int flag = 1; // Data storage flag
 
     int timepre, timesec;
-    int period = 20; // Data collection period <<<<<CUSTOMIZE>>>>>
+    int period = 60; // Data collection period <<<<<CUSTOMIZE>>>>>
 
     double outputdata; // Data for output
     double tempreal = 0.0; // Data of Realtime
