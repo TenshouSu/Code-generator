@@ -23,4 +23,4 @@
 
 ## Changes from #3:
 ・ Added variable "interval" in dth11_temperature.tpl: <br />
-&emsp; Added line 105, Changed line 158 <br />
+&emsp; Added line 105; Modified line 158 <br />
