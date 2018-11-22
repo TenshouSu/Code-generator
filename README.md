@@ -12,7 +12,7 @@
 
 ## Configuration
 ・ Eclipse Sirius (PC): <br/>
-&emsp; http://www.eclipse.org/sirius/getstarted.html <br />
+&emsp; http://www.eclipse.org/sirius/download.html <br />
 ・ Docker (PC): <br />
 &emsp; https://www.docker.com/ <br />
 ・ Lustre v6 (Docker): <br />
