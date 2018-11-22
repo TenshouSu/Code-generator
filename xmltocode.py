@@ -242,15 +242,45 @@ class xmltocode:
             print os.system(status)
 
 
-#--- (Private Attribute)(Function) Find out useful lustre code.
-    def __findUseful(self, tempname, nodename):
+#--- (Private Attribute)(Function) Create folders for saving files.
+    def __createFolder(self, num):
+        fpath = "./Execute"
+        folder = os.path.exists(fpath)
+        if not folder:
+            os.makedirs(fpath)
+        fpath = "./Execute/" + self.nameseq[num]
+        folder = os.path.exists(fpath)
+        if not folder:
+            os.makedirs(fpath)
+
+
+#--- (Private Attribute)(Function) Find out useful lustre code and save them in Execute folder, finally delete useless files.
+    def __findUseful(self, tempname, nodename, num):
+
         for node in nodename:
             cname = tempname + '_' + node + '.c'
             hname = tempname + '_' + node + '.h'
-            newcname = './Execute/' + tempname + '_' + node + '.c'
-            newhname = './Execute/' + tempname + '_' + node + '.h'
+            lname = tempname + '.lus'
+            newcname = './Execute/' + self.nameseq[num] + "/" + tempname + '_' + node + '.c'
+            newhname = './Execute/' + self.nameseq[num] + "/" + tempname + '_' + node + '.h'
+            newlname = './Execute/' + self.nameseq[num] + "/" + tempname + '.lus'
             shutil.copy(cname,newcname)
             shutil.copy(hname,newhname)
+            shutil.copy(lname,newlname)
+
+        # Copy lustre_types.h and lustre_consts.h
+        others = ['lustre_types.h','lustre_consts.h']
+        for name in others:
+            shutil.copy(name,'./Execute/'+self.nameseq[num]+'/'+name)
+
+        # Remove needless files
+        f_list = os.listdir('.')
+        for i in f_list:
+            if os.path.splitext(i)[1] == '.c' or os.path.splitext(i)[1] == '.h' or os.path.splitext(i)[1] == '.sh' or os.path.splitext(i)[1] == '.lus':
+                try:
+                    os.remove(i)
+                except OSError:
+                    pass
 
 
 #--- Find out Lustre template and translate them to C and delete useless files.
@@ -260,6 +290,8 @@ class xmltocode:
         for sec in self.dataseq:
             tempnum = 0
             for temp in sec:
+                # Create floders in ./Execute/ to save generated files
+                self.__createFolder(secnum)
                 # Find name of lustre template.
                 tempname = self.tplseq[secnum][tempnum]
                 tplname = tempname + '_lus.tpl'
@@ -277,25 +309,12 @@ class xmltocode:
                     f.close()
                     os.rename(txtname,lusname)
                     self.__lusToCode(lusname, nodename)
-                    self.__findUseful(tempname, nodename)
+                    self.__findUseful(tempname, nodename, secnum)
                 except:
                     pass
                 tempnum += 1
             secnum += 1
 
-        # Copy lustre_types.h and lustre_consts.h
-        others = ['lustre_types.h','lustre_consts.h']
-        for name in others:
-            shutil.copy(name,'./Execute/'+name)
-
-        # Remove needless files
-        f_list = os.listdir('.')
-        for i in f_list:
-            if os.path.splitext(i)[1] == '.c' or os.path.splitext(i)[1] == '.h' or os.path.splitext(i)[1] == '.sh':
-                try:
-                    os.remove(i)
-                except OSError:
-                    pass
 
 # #--- Read the template and generate files
 #     def generateFile(self, format):
