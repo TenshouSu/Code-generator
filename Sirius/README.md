@@ -1,1 +1,1 @@
-# Design in Sirius
+# Design Files in Eclipse Sirius
