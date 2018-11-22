@@ -21,7 +21,7 @@
 ・ Wiringpi library (Raspbeery Pi): <br />
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
-## Changes from #3:
+## Changes from #4:
 ・  <br />
 &emsp;  <br />
 <br />
