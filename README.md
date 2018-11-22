@@ -1,7 +1,9 @@
 # Code-generator
-## 2 kinds of files in this program:
-・ Main Program of Code Generator. <br />
-・ File folder and Templates in it. <br />
+## 4 kinds of files in this program:
+・ Main Program of Code Generator in Root Directory. <br />
+・ Template in "Template" Folder. <br />
+・ Design files of Eclipse Sirius in "Sirius" and "XML" Folder. <br />
+・ Generated files in "Execute" Folder <br />
 
 ## 3 kinds of Template:
 ・ Device and Function driver template. <br />
