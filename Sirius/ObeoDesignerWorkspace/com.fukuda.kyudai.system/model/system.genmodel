@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.fukuda.kyudai.system/src-gen" creationIcons="false"
+    editDirectory="/com.fukuda.kyudai.system.edit/src-gen" editorDirectory="/com.fukuda.kyudai.system.editor/src-gen"
+    modelPluginID="com.fukuda.kyudai.system" modelName="System" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>system.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="System" basePackage="com.fukuda.kyudai" disposableProviderFactory="true"
+      ecorePackage="system.ecore#/">
+    <genClasses ecoreClass="system.ecore#//system">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//system/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference system.ecore#//system/function"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference system.ecore#//system/sensor"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//sensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//sensor/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference system.ecore#//sensor/process"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//function/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference system.ecore#//function/reprocess"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//domain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference system.ecore#//domain/local_store"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference system.ecore#//domain/trust"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//local_store">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//local_store/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//local_store/path"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//temperature">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference system.ecore#//temperature/osoyoo"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//osoyoo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//osoyoo/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//osoyoo/interval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//osoyoo/period"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//local"/>
+    <genClasses ecoreClass="system.ecore#//dht11_temperature"/>
+    <genClasses ecoreClass="system.ecore#//trust">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//trust/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//trust/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//trust/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//trust/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//amazon"/>
+    <genClasses ecoreClass="system.ecore#//anonymization">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference system.ecore#//anonymization/average"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//average">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//average/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute system.ecore#//average/interval"/>
+    </genClasses>
+    <genClasses ecoreClass="system.ecore#//data_average"/>
+    <genClasses ecoreClass="system.ecore#//encryption"/>
+    <genClasses ecoreClass="system.ecore#//data_deletion"/>
+    <genClasses ecoreClass="system.ecore#//verification"/>
+  </genPackages>
+</genmodel:GenModel>
