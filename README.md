@@ -24,9 +24,12 @@
 ## Changes from #3:
 ・ Added variable "interval" in dth11_temperature.tpl: <br />
 &emsp; Added line 105; Modified line 158 <br />
+<br />
 ・ Added one new function in xmltocode.py for create new folders to save useful files in ./Execute/: <br />
 &emsp; Added line 245 - 254, line 293 - 294; Modified line 264 - 266; Moved code in line 271 - 283 <br />
+<br />
 ・ Create Sirius Folder to save design and metamodel in Eclipse Sirius: <br />
 &emsp; Added files in Sirius Folder <br />
+<br />
 ・ Added Living_Room_1 Folder in Execute Folder to save generated files via main program: <br />
 &emsp; Added files in Living_Room_1 Folder <br />
