@@ -101,7 +101,8 @@ int main( void )
     int flag = 1; // Data storage flag
 
     int timepre, timesec;
-    int period = 60; // Data collection period <<<<<CUSTOMIZE>>>>>
+    int period = 60; // Data storgae period <<<<<CUSTOMIZE>>>>>
+    int interval = {{interval}} * 1000; // Data collection interval <<<<<CUSTOMIZE>>>>>
 
     double outputdata; // Data for output
     double tempreal = 0.0; // Data of Realtime
@@ -154,7 +155,7 @@ int main( void )
             {% endblock %}
             {% endraw %}
 
-            delay(1000);//wait ls to refresh
+            delay(interval);//wait ls to refresh
 
             time(&tmpcal_ptr);
             timesec = tmpcal_ptr; // Record timestamp
