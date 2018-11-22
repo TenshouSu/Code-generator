@@ -22,5 +22,5 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
 ## Changes from #3:
-・  <br />
-&emsp;  <br />
+・ Added variable "interval" in dth11_temperature.tpl: <br />
+&emsp; line 105, 158 <br />
