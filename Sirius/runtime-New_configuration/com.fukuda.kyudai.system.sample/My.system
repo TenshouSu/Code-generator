@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system:system xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:system="http://www.example.org/system">
+  <function xsi:type="system:anonymization" name="Average" reprocess="//@function.1">
+    <average xsi:type="system:data_average" interval="3600"/>
+  </function>
+  <function xsi:type="system:domain" name="Local">
+    <local_store xsi:type="system:local" path="log"/>
+  </function>
+  <function xsi:type="system:domain" name="local2">
+    <local_store xsi:type="system:local" name="" path="aout"/>
+  </function>
+  <sensor xsi:type="system:temperature" name="Living Room" process="//@function.0 //@function.2">
+    <osoyoo xsi:type="system:dht11_temperature" interval="1"/>
+  </sensor>
+</system:system>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:system="http://www.example.org/system" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_s3JlgI_tEeiGy-CNDm6uKQ" selectedViews="_WwjHMJPREei_qPSLKUQPOQ" version="12.1.0.201708031200">
+    <semanticResources>My.system</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_WwjHMJPREei_qPSLKUQPOQ">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_kGa8IJPREei_qPSLKUQPOQ" name="new System Diagram" repPath="#_kEfpgJPREei_qPSLKUQPOQ">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']"/>
+        <target xmi:type="system:system" href="My.system#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_kGXRwJPREei_qPSLKUQPOQ" name="new System Diagram" uid="_kEfpgJPREei_qPSLKUQPOQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_kGXRwZPREei_qPSLKUQPOQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_kGXRwpPREei_qPSLKUQPOQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_kG9usJPREei_qPSLKUQPOQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_kG9usZPREei_qPSLKUQPOQ" type="Sirius" element="_kGXRwJPREei_qPSLKUQPOQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_pVK2kLNaEeiSRNmCuzK5PQ" type="2002" element="_pVHzQLNaEeiSRNmCuzK5PQ">
+          <children xmi:type="notation:Node" xmi:id="_pVLdoLNaEeiSRNmCuzK5PQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_pVLdobNaEeiSRNmCuzK5PQ" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_qr-4gLNaEeiSRNmCuzK5PQ" type="3007" element="_qr71MLNaEeiSRNmCuzK5PQ">
+              <children xmi:type="notation:Node" xmi:id="_qr_fkLNaEeiSRNmCuzK5PQ" type="5003">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_qr_fkbNaEeiSRNmCuzK5PQ" x="-1"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_qsAGoLNaEeiSRNmCuzK5PQ" type="3005" element="_qr8cQLNaEeiSRNmCuzK5PQ">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_qsAGobNaEeiSRNmCuzK5PQ" fontName=".SF NS Text"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qsAGorNaEeiSRNmCuzK5PQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_qr-4gbNaEeiSRNmCuzK5PQ" fontName=".SF NS Text" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qr-4grNaEeiSRNmCuzK5PQ" x="59" y="22" width="25" height="25"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_pVLdorNaEeiSRNmCuzK5PQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_pVLdo7NaEeiSRNmCuzK5PQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_pVK2kbNaEeiSRNmCuzK5PQ" fontName=".SF NS Text" fontHeight="8" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pVK2krNaEeiSRNmCuzK5PQ" x="532" y="64"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_r8gFMLNaEeiSRNmCuzK5PQ" type="2002" element="_r8ca0LNaEeiSRNmCuzK5PQ">
+          <children xmi:type="notation:Node" xmi:id="_r8gsQLNaEeiSRNmCuzK5PQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_r8gsQbNaEeiSRNmCuzK5PQ" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_tRAaALNaEeiSRNmCuzK5PQ" type="3007" element="_tQ8IkLNaEeiSRNmCuzK5PQ">
+              <children xmi:type="notation:Node" xmi:id="_tRBBELNaEeiSRNmCuzK5PQ" type="5003">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_tRBBEbNaEeiSRNmCuzK5PQ" x="-1"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_tRBoILNaEeiSRNmCuzK5PQ" type="3005" element="_tQ8IkbNaEeiSRNmCuzK5PQ">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_tRBoIbNaEeiSRNmCuzK5PQ" fontName=".SF NS Text"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tRBoIrNaEeiSRNmCuzK5PQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_tRAaAbNaEeiSRNmCuzK5PQ" fontName=".SF NS Text" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tRAaArNaEeiSRNmCuzK5PQ" x="59" y="22" width="25" height="25"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_r8gsQrNaEeiSRNmCuzK5PQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_r8gsQ7NaEeiSRNmCuzK5PQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_r8gFMbNaEeiSRNmCuzK5PQ" fontName=".SF NS Text" fontHeight="8" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r8gFMrNaEeiSRNmCuzK5PQ" x="420" y="208"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_umpXQLNaEeiSRNmCuzK5PQ" type="2002" element="_umls4LNaEeiSRNmCuzK5PQ">
+          <children xmi:type="notation:Node" xmi:id="_umpXQ7NaEeiSRNmCuzK5PQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_umpXRLNaEeiSRNmCuzK5PQ" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_v9-9oLNaEeiSRNmCuzK5PQ" type="3007" element="_v96sMLNaEeiSRNmCuzK5PQ">
+              <children xmi:type="notation:Node" xmi:id="_v9-9o7NaEeiSRNmCuzK5PQ" type="5003">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_v9_ksLNaEeiSRNmCuzK5PQ" x="-1"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_v9_ksbNaEeiSRNmCuzK5PQ" type="3005" element="_v96sMbNaEeiSRNmCuzK5PQ">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_v9_ksrNaEeiSRNmCuzK5PQ" fontName=".SF NS Text"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v9_ks7NaEeiSRNmCuzK5PQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_v9-9obNaEeiSRNmCuzK5PQ" fontName=".SF NS Text" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v9-9orNaEeiSRNmCuzK5PQ" x="55" y="22" width="25" height="25"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_umpXRbNaEeiSRNmCuzK5PQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_umpXRrNaEeiSRNmCuzK5PQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_umpXQbNaEeiSRNmCuzK5PQ" fontName=".SF NS Text" fontHeight="8" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_umpXQrNaEeiSRNmCuzK5PQ" x="420" y="344"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_xNg1kO4jEeiVNY7sXGI-1w" type="2002" element="_xNRlAO4jEeiVNY7sXGI-1w">
+          <children xmi:type="notation:Node" xmi:id="_xNtC0O4jEeiVNY7sXGI-1w" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_xNtp4O4jEeiVNY7sXGI-1w" type="7001">
+            <children xmi:type="notation:Node" xmi:id="_zgGjQO4jEeiVNY7sXGI-1w" type="3007" element="_zf8LMO4jEeiVNY7sXGI-1w">
+              <children xmi:type="notation:Node" xmi:id="_zgHxYO4jEeiVNY7sXGI-1w" type="5003">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_zgHxYe4jEeiVNY7sXGI-1w" x="-1"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_zgNQ8O4jEeiVNY7sXGI-1w" type="3005" element="_zf8LMe4jEeiVNY7sXGI-1w">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_zgNQ8e4jEeiVNY7sXGI-1w" fontName=".SF NS Text"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zgNQ8u4jEeiVNY7sXGI-1w"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_zgGjQe4jEeiVNY7sXGI-1w" fontName=".SF NS Text" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zgGjQu4jEeiVNY7sXGI-1w" x="55" y="26" width="25" height="25"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_xNtp4e4jEeiVNY7sXGI-1w"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_xNtp4u4jEeiVNY7sXGI-1w"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_xNg1ke4jEeiVNY7sXGI-1w" fontName=".SF NS Text" fontHeight="8" bold="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xNg1ku4jEeiVNY7sXGI-1w" x="652" y="208"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_kG9uspPREei_qPSLKUQPOQ"/>
+        <edges xmi:type="notation:Edge" xmi:id="_x2tZ0LNaEeiSRNmCuzK5PQ" type="4001" element="_x2pvcLNaEeiSRNmCuzK5PQ" source="_pVK2kLNaEeiSRNmCuzK5PQ" target="_r8gFMLNaEeiSRNmCuzK5PQ">
+          <children xmi:type="notation:Node" xmi:id="_x2uA4LNaEeiSRNmCuzK5PQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x2uA4bNaEeiSRNmCuzK5PQ" x="-8" y="-6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_x2uA4rNaEeiSRNmCuzK5PQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x2uA47NaEeiSRNmCuzK5PQ" x="9" y="6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_x2uA5LNaEeiSRNmCuzK5PQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x2uA5bNaEeiSRNmCuzK5PQ" x="8" y="6"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_x2tZ0bNaEeiSRNmCuzK5PQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_x2tZ0rNaEeiSRNmCuzK5PQ" fontName=".SF NS Text" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_x2tZ07NaEeiSRNmCuzK5PQ" points="[0, 0, 112, -76]$[-112, 76, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_x2uA5rNaEeiSRNmCuzK5PQ" id="(0.5,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_x2uA57NaEeiSRNmCuzK5PQ" id="(0.5,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_ygxqgLNaEeiSRNmCuzK5PQ" type="4001" element="_ygtZELNaEeiSRNmCuzK5PQ" source="_r8gFMLNaEeiSRNmCuzK5PQ" target="_umpXQLNaEeiSRNmCuzK5PQ">
+          <children xmi:type="notation:Node" xmi:id="_ygxqhLNaEeiSRNmCuzK5PQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ygxqhbNaEeiSRNmCuzK5PQ" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ygxqhrNaEeiSRNmCuzK5PQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ygxqh7NaEeiSRNmCuzK5PQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_ygxqiLNaEeiSRNmCuzK5PQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ygyRkLNaEeiSRNmCuzK5PQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ygxqgbNaEeiSRNmCuzK5PQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ygxqgrNaEeiSRNmCuzK5PQ" fontName=".SF NS Text" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ygxqg7NaEeiSRNmCuzK5PQ" points="[0, 0, 0, -68]$[0, 68, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ygyRkbNaEeiSRNmCuzK5PQ" id="(0.7567567567567568,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ygyRkrNaEeiSRNmCuzK5PQ" id="(0.7567567567567568,0.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2kCOUO4jEeiVNY7sXGI-1w" type="4001" element="_2j32QO4jEeiVNY7sXGI-1w" source="_pVK2kLNaEeiSRNmCuzK5PQ" target="_xNg1kO4jEeiVNY7sXGI-1w">
+          <children xmi:type="notation:Node" xmi:id="_2kDccO4jEeiVNY7sXGI-1w" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2kDcce4jEeiVNY7sXGI-1w" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2kEDgO4jEeiVNY7sXGI-1w" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2kEDge4jEeiVNY7sXGI-1w" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2kEqkO4jEeiVNY7sXGI-1w" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2kEqke4jEeiVNY7sXGI-1w" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2kCOUe4jEeiVNY7sXGI-1w"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2kCOUu4jEeiVNY7sXGI-1w" fontName=".SF NS Text" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2kCOU-4jEeiVNY7sXGI-1w" points="[0, 0, -123, -76]$[123, 76, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2kF4sO4jEeiVNY7sXGI-1w" id="(0.8175675675675675,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2kF4se4jEeiVNY7sXGI-1w" id="(0.8378378378378378,0.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_pVHzQLNaEeiSRNmCuzK5PQ" name="Living Room" outgoingEdges="_x2pvcLNaEeiSRNmCuzK5PQ _2j32QO4jEeiVNY7sXGI-1w">
+      <target xmi:type="system:temperature" href="My.system#//@sensor.0"/>
+      <semanticElements xmi:type="system:temperature" href="My.system#//@sensor.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_pVIaULNaEeiSRNmCuzK5PQ" borderSize="1" borderSizeComputationExpression="1" foregroundColor="194,239,255">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Temperature']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Temperature']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qr71MLNaEeiSRNmCuzK5PQ" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="system:dht11_temperature" href="My.system#//@sensor.0/@osoyoo.0"/>
+        <semanticElements xmi:type="system:dht11_temperature" href="My.system#//@sensor.0/@osoyoo.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_qr8cQLNaEeiSRNmCuzK5PQ" showIcon="false" labelAlignment="RIGHT" workspacePath="/com.fukuda.kyudai.system.design/gif-files/dht11_temperature.gif">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Temperature']/@subNodeMappings[name='DHT11']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Temperature']/@subNodeMappings[name='DHT11']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_r8ca0LNaEeiSRNmCuzK5PQ" name="Average" outgoingEdges="_ygtZELNaEeiSRNmCuzK5PQ" incomingEdges="_x2pvcLNaEeiSRNmCuzK5PQ">
+      <target xmi:type="system:anonymization" href="My.system#//@function.0"/>
+      <semanticElements xmi:type="system:anonymization" href="My.system#//@function.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_r8ca0bNaEeiSRNmCuzK5PQ" borderSize="1" borderSizeComputationExpression="1" foregroundColor="253,206,137">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_tQ8IkLNaEeiSRNmCuzK5PQ" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="system:data_average" href="My.system#//@function.0/@average.0"/>
+        <semanticElements xmi:type="system:data_average" href="My.system#//@function.0/@average.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_tQ8IkbNaEeiSRNmCuzK5PQ" showIcon="false" labelAlignment="RIGHT" workspacePath="/com.fukuda.kyudai.system.design/gif-files/data_average.gif">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization']/@subNodeMappings[name='Data_Average']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization']/@subNodeMappings[name='Data_Average']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_umls4LNaEeiSRNmCuzK5PQ" name="Local" incomingEdges="_ygtZELNaEeiSRNmCuzK5PQ">
+      <target xmi:type="system:domain" href="My.system#//@function.1"/>
+      <semanticElements xmi:type="system:domain" href="My.system#//@function.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_umls4bNaEeiSRNmCuzK5PQ" borderSize="1" borderSizeComputationExpression="1" foregroundColor="114,159,207">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_v96sMLNaEeiSRNmCuzK5PQ" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="system:local" href="My.system#//@function.1/@local_store.0"/>
+        <semanticElements xmi:type="system:local" href="My.system#//@function.1/@local_store.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_v96sMbNaEeiSRNmCuzK5PQ" showIcon="false" labelAlignment="RIGHT" workspacePath="/com.fukuda.kyudai.system.design/gif-files/local.gif">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']/@subNodeMappings[name='Local']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']/@subNodeMappings[name='Local']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_x2pvcLNaEeiSRNmCuzK5PQ" sourceNode="_pVHzQLNaEeiSRNmCuzK5PQ" targetNode="_r8ca0LNaEeiSRNmCuzK5PQ">
+      <target xmi:type="system:temperature" href="My.system#//@sensor.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_x2pvcbNaEeiSRNmCuzK5PQ" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@edgeMappings[name='Process']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_x2pvcrNaEeiSRNmCuzK5PQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@edgeMappings[name='Process']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ygtZELNaEeiSRNmCuzK5PQ" sourceNode="_r8ca0LNaEeiSRNmCuzK5PQ" targetNode="_umls4LNaEeiSRNmCuzK5PQ">
+      <target xmi:type="system:anonymization" href="My.system#//@function.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_yguAILNaEeiSRNmCuzK5PQ" size="2" strokeColor="114,159,207">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@edgeMappings[name='Reprocess']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_yguAIbNaEeiSRNmCuzK5PQ"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@edgeMappings[name='Reprocess']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_xNRlAO4jEeiVNY7sXGI-1w" name="local2" incomingEdges="_2j32QO4jEeiVNY7sXGI-1w">
+      <target xmi:type="system:domain" href="My.system#//@function.2"/>
+      <semanticElements xmi:type="system:domain" href="My.system#//@function.2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_xNSMEO4jEeiVNY7sXGI-1w" borderSize="1" borderSizeComputationExpression="1" foregroundColor="114,159,207">
+        <labelFormat>bold</labelFormat>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_zf8LMO4jEeiVNY7sXGI-1w" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="system:local" href="My.system#//@function.2/@local_store.0"/>
+        <semanticElements xmi:type="system:local" href="My.system#//@function.2/@local_store.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_zf8LMe4jEeiVNY7sXGI-1w" showIcon="false" labelAlignment="RIGHT" workspacePath="/com.fukuda.kyudai.system.design/gif-files/local.gif">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']/@subNodeMappings[name='Local']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']/@subNodeMappings[name='Local']"/>
+      </ownedDiagramElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_2j32QO4jEeiVNY7sXGI-1w" sourceNode="_pVHzQLNaEeiSRNmCuzK5PQ" targetNode="_xNRlAO4jEeiVNY7sXGI-1w">
+      <target xmi:type="system:temperature" href="My.system#//@sensor.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_2j4dUO4jEeiVNY7sXGI-1w" size="2" strokeColor="239,41,41">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@edgeMappings[name='Process']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_2j4dUe4jEeiVNY7sXGI-1w"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@edgeMappings[name='Process']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_kGX405PREei_qPSLKUQPOQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/com.fukuda.kyudai.system.design/description/system.odesign#//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer"/>
+    <target xmi:type="system:system" href="My.system#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

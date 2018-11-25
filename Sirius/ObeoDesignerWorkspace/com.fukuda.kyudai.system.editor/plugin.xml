@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated system -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.fukuda.kyudai.system.presentation.SystemModelWizardID"
+            name="%_UI_SystemModelWizard_label"
+            class="com.fukuda.kyudai.system.presentation.SystemModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SystemModelFile.gif">
+         <description>%_UI_SystemModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated system -->
+      <editor
+            id="com.fukuda.kyudai.system.presentation.SystemEditorID"
+            name="%_UI_SystemEditor_label"
+            icon="icons/full/obj16/SystemModelFile.gif"
+            extensions="system"
+            class="com.fukuda.kyudai.system.presentation.SystemEditor"
+            contributorClass="com.fukuda.kyudai.system.presentation.SystemActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="system" nsURI="http://www.example.org/system" nsPrefix="system">
+  <eClassifiers xsi:type="ecore:EClass" name="system">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" upperBound="-1"
+        eType="#//function" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
+        eType="#//sensor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sensor" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" upperBound="-1"
+        eType="#//function"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="function" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reprocess" upperBound="-1"
+        eType="#//function"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="domain" eSuperTypes="#//function">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="local_store" upperBound="-1"
+        eType="#//local_store" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trust" upperBound="-1"
+        eType="#//trust" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="local_store" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="temperature" eSuperTypes="#//sensor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="osoyoo" upperBound="-1"
+        eType="#//osoyoo" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="osoyoo" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="local" eSuperTypes="#//local_store"/>
+  <eClassifiers xsi:type="ecore:EClass" name="dht11_temperature" eSuperTypes="#//osoyoo"/>
+  <eClassifiers xsi:type="ecore:EClass" name="trust" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="amazon" eSuperTypes="#//trust"/>
+  <eClassifiers xsi:type="ecore:EClass" name="anonymization" eSuperTypes="#//function">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="average" upperBound="-1"
+        eType="#//average" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="average" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="data_average" eSuperTypes="#//average"/>
+  <eClassifiers xsi:type="ecore:EClass" name="encryption" eSuperTypes="#//function"/>
+  <eClassifiers xsi:type="ecore:EClass" name="data_deletion" eSuperTypes="#//function"/>
+  <eClassifiers xsi:type="ecore:EClass" name="verification" eSuperTypes="#//function"/>
+</ecore:EPackage>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="system" version="12.0.0.2017041100">
+  <ownedViewpoints name="system" modelFileExtension="system">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="System Diagram" domainClass="system.system">
+      <defaultLayer name="Default">
+        <edgeMappings name="Process" sourceMapping="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Temperature']" targetMapping="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Encryption'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Data_Deletion'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Verification']" targetFinderExpression="feature:process">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Reprocess" sourceMapping="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Encryption'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Data_Deletion'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Verification']" targetMapping="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Encryption'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Data_Deletion'] //@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Verification']" targetFinderExpression="feature:reprocess">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Temperature" semanticCandidatesExpression="feature:sensor" domainClass="system.temperature">
+          <subNodeMappings name="DHT11" semanticCandidatesExpression="feature:osoyoo" domainClass="system.dht11_temperature">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelAlignment="RIGHT" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/com.fukuda.kyudai.system.design/gif-files/dht11_temperature.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Domain" semanticCandidatesExpression="feature:function" domainClass="system.domain">
+          <subNodeMappings name="Local" semanticCandidatesExpression="feature:local_store" domainClass="system.local">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelAlignment="RIGHT" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/com.fukuda.kyudai.system.design/gif-files/local.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="Aamazon" semanticCandidatesExpression="feature:trust" domainClass="system.amazon">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelAlignment="RIGHT" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/com.fukuda.kyudai.system.design/gif-files/amazon.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Anonymization" semanticCandidatesExpression="feature:function" domainClass="system.anonymization">
+          <subNodeMappings name="Data_Average" semanticCandidatesExpression="feature:average" domainClass="system.data_average">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelAlignment="RIGHT" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/com.fukuda.kyudai.system.design/gif-files/data_average.gif">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Encryption" semanticCandidatesExpression="feature:function" domainClass="system.encryption">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Data_Deletion" semanticCandidatesExpression="feature:function" domainClass="system.data_deletion">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Verification" semanticCandidatesExpression="feature:function" domainClass="system.verification">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Temperature">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Temperature" forceRefresh="true" containerMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Temperature']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.temperature" referenceName="sensor"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Sensors">
+            <tools xsi:type="tool:NodeCreationDescription" name="DHT11" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Temperature']/@subNodeMappings[name='DHT11']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.dht11_temperature" referenceName="osoyoo"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Domain">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Domain" forceRefresh="true" containerMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.domain" referenceName="function"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Local">
+            <tools xsi:type="tool:NodeCreationDescription" name="Local" nodeMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']/@subNodeMappings[name='Local']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.local" referenceName="local_store"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Trust">
+            <tools xsi:type="tool:NodeCreationDescription" name="Amazon (Trusted)" nodeMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Domain']/@subNodeMappings[name='Aamazon']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.amazon" referenceName="trust"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Tools">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Process" edgeMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@edgeMappings[name='Process']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="process" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Reprocess" edgeMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@edgeMappings[name='Reprocess']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="reprocess" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Anonymization">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Anonymization" forceRefresh="true" containerMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.anonymization" referenceName="function"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Average">
+            <tools xsi:type="tool:NodeCreationDescription" name="Data_Average" nodeMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Anonymization']/@subNodeMappings[name='Data_Average']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.data_average" referenceName="average"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Encryption">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Encryption" forceRefresh="true" containerMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Encryption']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.encryption" referenceName="function"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Data_Deletion">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Data_Deletion" forceRefresh="true" containerMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Data_Deletion']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.data_deletion" referenceName="function"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Verification">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Verification" forceRefresh="true" containerMappings="//@ownedViewpoints[name='system']/@ownedRepresentations[name='System%20Diagram']/@defaultLayer/@containerMappings[name='Verification']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="system.verification" referenceName="function"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
