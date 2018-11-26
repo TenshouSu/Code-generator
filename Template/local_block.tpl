@@ -9,7 +9,7 @@
 {% raw -%}
 {% block local_2 -%} {# ------content of block local_2------ #}
 {% endraw %}
-            local(flag, timepre, outputdata);
+local(flag, timepre, outputdata);
 {% raw -%}
 {% endblock %}
 {% endraw %}
