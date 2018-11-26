@@ -23,7 +23,7 @@
 * Wiringpi library (Raspbeery Pi): <br />
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
-*** Please use docker to execute main progam. 
+- Please use docker to execute main progam. 
 
 ## Changes from Code_Generator-#5:
 *  <br />
