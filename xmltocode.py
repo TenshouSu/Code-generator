@@ -220,7 +220,7 @@ class xmltocode:
                 self.dataseq.append(databuffseq)
 
 ###--------------------------------------------------------------###
-### ----- Find out Lustre template and Tranlate them to C. ----- ###
+### ----- Find out Lustre Template and Tranlate them to C. ----- ###
 ###--------------------------------------------------------------###
 
 #--- (Private Attribute)(Function) Find out node name.
@@ -316,6 +316,34 @@ class xmltocode:
             secnum += 1
 
 
+###--------------------------------------------------------------###
+### ----- Find out Driver Template and Assemble them. ----- ###
+###--------------------------------------------------------------###
+
+#--- Find out block template and assemble them to new tpl files.
+    def blockAssemble(self):
+        secnum = 0 # Initialize section counter
+        for sec in self.tplseq:
+            secname = self.nameseq[secnum] + '.txt'
+            newsecname = self.nameseq[secnum] + '.tpl'
+            f = open(secname,'w') # Create file to save translated code
+            namenum = 0 # Initialize name counter
+            for name in sec:
+                tplname = name + '_block.tpl'
+                env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
+                # Try to find out block template and assemble them
+                try:
+                    template = env.get_template(tplname)
+                    data = self.dataseq[secnum][namenum]
+                    disp_text = template.render(data)
+                    f.write(disp_text)
+                except:
+                    pass
+                namenum += 1
+            os.rename(secname,newsecname)
+            secnum += 1
+
+
 # #--- Read the template and generate files
 #     def generateFile(self, format):
 #         self.__getTemplateData()
@@ -371,3 +399,7 @@ if __name__ == '__main__':
     # Read xml file in Eclipse Sirius.
     f.readxml('/workdir/runtime-New_configuration/com.fukuda.kyudai.system.sample/My.system')
     f.lusTemptoC()
+    f.blockAssemble()
+    print f.nameseq
+    print f.tplseq
+    print f.dataseq
