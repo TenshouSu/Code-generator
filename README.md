@@ -24,6 +24,6 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
 ## Changes from Code_Generator-#4:
-・ Added function in xmltocode for translate and assemble block template <br />
+・ Added function in xmltocode.py for translating and assembling block template. <br />
 &emsp; Added line 319-344, 402 <br />
 <br />
