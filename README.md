@@ -27,3 +27,6 @@
 ・ Modified block template "data_average_block.tpl" and delete some space <br />
 &emsp; Modified line 4, 12, 20 <br />
 <br />
+・ Modified block template "local_block.tpl" and delete some space <br />
+&emsp; Modified line 12 <br />
+<br />
