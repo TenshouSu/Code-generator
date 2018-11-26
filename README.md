@@ -22,7 +22,7 @@
 &emsp; http://www.python.ambitious-engineer.com/archives/760 <br />
 * Wiringpi library (Raspbeery Pi): <br />
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
-* Please use Docker to execute main progam. 
+* Please use Docker to execute main program. 
 
 ## Changes from Code_Generator-#6:
 * Modified driver template "local.tpl" and added function that check whether data is good or not. <br />
