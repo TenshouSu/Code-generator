@@ -1,7 +1,9 @@
 # Code-generator
-## 2 kinds of files in this program:
-・ Main Program of Code Generator. <br />
-・ File folder and Templates in it. <br />
+## 4 kinds of files in this program:
+・ Main Program of Code Generator in Root Directory. <br />
+・ Template in "Template" Folder. <br />
+・ Design files of Eclipse Sirius in "Sirius" and "XML" Folder. <br />
+・ Generated files in "Execute" Folder <br />
 
 ## 3 kinds of Template:
 ・ Device and Function driver template. <br />
@@ -10,7 +12,7 @@
 
 ## Configuration
 ・ Eclipse Sirius (PC): <br/>
-&emsp; http://www.eclipse.org/sirius/getstarted.html <br />
+&emsp; http://www.eclipse.org/sirius/download.html <br />
 ・ Docker (PC): <br />
 &emsp; https://www.docker.com/ <br />
 ・ Lustre v6 (Docker): <br />
@@ -21,15 +23,7 @@
 ・ Wiringpi library (Raspbeery Pi): <br />
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
-## Changes from #3:
-・ Added variable "interval" in dth11_temperature.tpl: <br />
-&emsp; Added line 105; Modified line 158 <br />
+## Changes from Code_Generator-#4:
+・ Added function in xmltocode.py for translating and assembling block template. <br />
+&emsp; Added line 319-344, 402 <br />
 <br />
-・ Added one new function in xmltocode.py for create new folders to save useful files in ./Execute/: <br />
-&emsp; Added line 245 - 254, line 293 - 294; Modified line 264 - 266; Moved code in line 271 - 283 <br />
-<br />
-・ Create Sirius Folder to save design and metamodel in Eclipse Sirius: <br />
-&emsp; Added files in Sirius Folder <br />
-<br />
-・ Added Living_Room_1 Folder in Execute Folder to save generated files via main program: <br />
-&emsp; Added files in Living_Room_1 Folder <br />
