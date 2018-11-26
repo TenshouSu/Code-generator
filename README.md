@@ -24,6 +24,6 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
 ## Changes from Code_Generator-#5:
-・ Modified block template "data_average_block.tpl" <br />
-&emsp; Modified line 4 <br />
+・ Modified block template "data_average_block.tpl" and delete some space <br />
+&emsp; Modified line 4, 12, 20 <br />
 <br />
