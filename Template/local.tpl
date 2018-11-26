@@ -52,10 +52,17 @@ void local(int flag, int timepre, double outputdata)
       }
     }
 
+    if(outputdata>-1000)
+    {
     char str[10];
-    sprintf(str, "%.1f \n", outputdata);
+    sprintf(str, "%.1f \r\n", outputdata);
     fwrite(str, 1, sizeof(str), p);
-
+    }
+    else
+    {
+      char err[] = "Data not good, skip \n\0";
+      fwrite(err, 1, sizeof(err), p);
+    }
     fclose(p);
   }
 }
