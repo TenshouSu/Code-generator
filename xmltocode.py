@@ -320,77 +320,84 @@ class xmltocode:
 ### ----- Find out Driver Template and Assemble them. ----- ###
 ###--------------------------------------------------------------###
 
-#--- Find out block template and assemble them to new tpl files.
-    def blockAssemble(self):
+#--- Find out template and assemble them to executable code.
+    def templateAssemble(self):
         secnum = 0 # Initialize section counter
         for sec in self.tplseq:
+            # Try to find out block template and assemble them to be child template
             secname = self.nameseq[secnum] + '.txt'
-            newsecname = self.nameseq[secnum] + '.tpl'
+            newsecname = self.nameseq[secnum] + '.tpl' # Name of child Template
             f = open(secname,'w') # Create file to save translated code
             namenum = 0 # Initialize name counter
+            titlename = r'{% extends "sensor.tpl" %} \n\n'
+            f.write(titlename)
             for name in sec:
-                tplname = name + '_block.tpl'
+                blockname = name + '_block.tpl'
                 env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
-                # Try to find out block template and assemble them
                 try:
-                    template = env.get_template(tplname)
+                    template = env.get_template(blockname)
                     data = self.dataseq[secnum][namenum]
                     disp_text = template.render(data)
                     f.write(disp_text)
                 except:
                     pass
                 namenum += 1
-            os.rename(secname,newsecname)
+            f.close()
+            os.rename(secname, newsecname)
+            # Try to find out driver template and assemble them
+            tplnum = 0 # Initialize tpl counter
+            for name in sec:
+                firstname = 'sensor.txt'
+                firsttpl = 'sensor.tpl' # One time translated main execute template
+                txtname = name + '.txt'
+                tplname = name + '.tpl'
+                exename = name + '.c'
+                newexename = './Execute/' + self.nameseq[secnum] + '/' + exename
+                mainname = './Execute/' + self.nameseq[secnum] + '/' + 'main.c'
+                # Main execute file is special to handle and firstly we save data in sensor.txt
+                if tplnum == 0:
+                    p = open(firstname, 'w')
+                else:
+                    p = open(txtname, 'w')
+                env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
+                template = env.get_template(tplname)
+                data = self.dataseq[secnum][tplnum]
+                disp_text = template.render(data)
+                p.write(disp_text)
+                p.close()
+                # if main execute file, we have to combine child block
+                if tplnum == 0:
+                    try:
+                        g = open(txtname, 'w')
+                        # Change name "sensor.txt" to "sensor.tpl"
+                        os.rename(firstname,firsttpl)
+                        env = Environment(loader=FileSystemLoader('.'), trim_blocks=True)
+                        # Inherit child template
+                        template = env.get_template(newsecname)
+                        disp_text = template.render()
+                        g.write(disp_text)
+                        g.close()
+                    except:
+                        pass
+                os.rename(txtname, exename)
+                # Copy executable files to './Execute/'
+                shutil.copy(exename, newexename)
+                # If main execute file, change name to 'main.c'
+                if tplnum == 0:
+                    try:
+                        os.rename(newexename, mainname)
+                    except:
+                        pass
+                tplnum += 1
+            # Remove remaining files
+            f_list = os.listdir('.')
+            for i in f_list:
+                if os.path.splitext(i)[1] == '.c' or os.path.splitext(i)[1] == '.tpl':
+                    try:
+                        os.remove(i)
+                    except OSError:
+                        pass
             secnum += 1
-
-
-# #--- Read the template and generate files
-#     def generateFile(self, format):
-#         self.__getTemplateData()
-#         # print self.nameseq
-#         # print self.tplseq
-#         # print self.dataseq
-#         # Read Template and Generate Code
-#         for mainnum in range(len(self.tplseq)):
-#             for subnum in range(len(self.tplseq[mainnum])):
-#                 # Create Sensor Template
-#                 if subnum == 0:
-#                     fileName = 'sensor.txt'
-#                     confName = 'sensor.tpl'
-#                 # Create Function Template
-#                 else:
-#                     fileName = 'function.txt'
-#                     confName = 'function.tpl'
-#                     extends = r'{% extends "sensor.tpl" %}'
-#                 # Find template and use these template to generate code
-#                 env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
-#                 tplname = self.tplseq[mainnum][subnum] + '.tpl'
-#                 template = env.get_template(tplname)
-#                 data = self.dataseq[mainnum][subnum]
-#                 disp_text = template.render(data)
-#                 if subnum <= 1:
-#                     file = open(fileName, 'w')
-#                 if subnum == 1:
-#                     file.write(extends)
-#                     file.write('\n')
-#                 file.write(disp_text)
-#                 if subnum == 0 or subnum == len(self.tplseq[mainnum]) - 1:
-#                     os.rename(fileName,confName)
-#                     file.close()
-#             # Combine sensor and function template to generate executive file
-#             env = Environment(loader=FileSystemLoader('.'), trim_blocks=True)
-#             template = env.get_template('function.tpl')
-#             disp_text = template.render()
-#             fileName = self.nameseq[mainnum] + '.txt'
-#             confName = self.nameseq[mainnum] + '.' + str(format)  #option
-#             file = open(fileName, 'w')
-#             file.write(disp_text)
-#             os.rename(fileName,confName)
-#             file.close()
-#             # Remove sensor and function template
-#             os.remove('./function.tpl')
-#             os.remove('./sensor.tpl')
-#             print ' Code Generating Success! \n'
 
 
 ## Execute
@@ -398,8 +405,6 @@ if __name__ == '__main__':
     f = xmltocode()
     # Read xml file in Eclipse Sirius.
     f.readxml('/workdir/runtime-New_configuration/com.fukuda.kyudai.system.sample/My.system')
-    f.lusTemptoC()
-    f.blockAssemble()
-    print f.nameseq
-    print f.tplseq
-    print f.dataseq
+    f.lusTemptoC() # Translate Lustre file to C Code
+    f.templateAssemble() # Assemble Template to Executable C Code
+    print '--- Code Generating Complete! --- \n'
