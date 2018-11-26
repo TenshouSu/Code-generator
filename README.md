@@ -24,9 +24,12 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 
 ## Changes from Code_Generator-#5:
-・ Modified block template "data_average_block.tpl" and delete some space <br />
+・ Modified block template "data_average_block.tpl" and deleted some space <br />
 &emsp; Modified line 4, 12, 20 <br />
 <br />
-・ Modified block template "local_block.tpl" and delete some space <br />
+・ Modified block template "local_block.tpl" and deleted some space <br />
 &emsp; Modified line 12 <br />
+<br />
+・ Modified main program "xmltocode.py" ,added code generating function and deleted some useless comment <br />
+&emsp; Modified line 324-348, 409; Added line 349-400, 410 <br />
 <br />
