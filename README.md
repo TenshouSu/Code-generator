@@ -24,7 +24,7 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 * Please use Docker to execute main progam. 
 
-## Changes from Code_Generator-#6:
+## Changes from Code_Generator-#7:
 * Modified main program 'xmltocode.py' for changing templateAssemble function to generate different kinds of code. <br />
 &emsp; Modified line 324, 355, 357, 410; Added line 325 <br />
 * Added function in main program 'xmltocode' for outputing level verification files. <br />
