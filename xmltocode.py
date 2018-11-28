@@ -8,6 +8,8 @@ import os
 import time
 import shutil
 from jinja2 import Template, Environment, FileSystemLoader
+import json
+import leveldict
 
 
 class xmltocode:
@@ -316,9 +318,9 @@ class xmltocode:
             secnum += 1
 
 
-###--------------------------------------------------------------###
+###---------------------------------------------------------###
 ### ----- Find out Driver Template and Assemble them. ----- ###
-###--------------------------------------------------------------###
+###---------------------------------------------------------###
 
 #--- Find out template and assemble them to executable code.
     def templateAssemble(self, modename):
@@ -401,11 +403,34 @@ class xmltocode:
             secnum += 1
 
 
+###--------------------------------------------------------###
+### ----- Output a file of function level dictionary ----- ###
+###--------------------------------------------------------###
+
+#--- Find the function level dictionary and output the level verification file.
+    def levelVerify(self):
+        num = 0
+        for sec in self.tplseq:
+            # Initialize a level verification dictionary
+            verifydict = {'sensor':0,'anonymization':0,'encryption':0,'data_deletion':0,'verification':0,'domain':0}
+            # Find function name and modify the dictionary
+            for function in sec:
+                for key, value in leveldict.valuedict(function).items():
+                    verifydict[key] = value
+            # Save the dictionary as level verification file
+            filepath = './Execute/' + self.nameseq[num] + '/dict.json'
+            f = open(filepath, 'w')
+            f.write(str(verifydict))
+            f.close()
+            num += 1
+
+
 ## Execute
 if __name__ == '__main__':
     f = xmltocode()
-    # Read xml file in Eclipse Sirius.
+    # Read xml file in Eclipse Sirius
     f.readxml('/workdir/runtime-New_configuration/com.fukuda.kyudai.system.sample/My.system')
     f.lusTemptoC() # Translate Lustre file to C Code
     f.templateAssemble('c') # Assemble Template to Executable C Code
+    f.levelVerify() # Generate level verification file
     print '--- Code Generating Complete! --- \n'
