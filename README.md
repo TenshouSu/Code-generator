@@ -1,7 +1,7 @@
 # Code-generator
 ## 5 kinds of files in this program:
-* Main Program of Code Generator 'xmltocode.py' in Root Directory. <br />
-* Level Dictionary of each Function 'leveldict.py' in Root Directory. <br />
+* Main Program of Code Generator "xmltocode.py" in Root Directory. <br />
+* Level Dictionary of each Function "leveldict.py" in Root Directory. <br />
 * Template in "Template" Folder. <br />
 * Design files of Eclipse Sirius in "Sirius" Folder and Sample XML file in "XML" Folder. <br />
 * Generated files in "Execute" Folder. <br />
@@ -26,5 +26,8 @@
 * Please use Docker to execute main program. 
 
 ## Changes from Code_Generator-#7:
-* Modified driver template "local.tpl" and added function that check whether data is good or not. <br />
-&emsp; Modified line 58; Added line 55-56, 60-65 <br />
+* Modified main program "xmltocode.py" for changing templateAssemble function to generate different kinds of code. <br />
+&emsp; Modified line 324, 355, 357, 410; Added line 325 <br />
+* Added function in main program "xmltocode" for outputing level verification files. <br />
+&emsp; Added line 406-425, 435 <br />
+* Added a level dictionary file "leveldict.py" for finding level of each function. <br />
