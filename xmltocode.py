@@ -8,6 +8,8 @@ import os
 import time
 import shutil
 from jinja2 import Template, Environment, FileSystemLoader
+import json
+import leveldict
 
 
 class xmltocode:
@@ -316,12 +318,13 @@ class xmltocode:
             secnum += 1
 
 
-###--------------------------------------------------------------###
+###---------------------------------------------------------###
 ### ----- Find out Driver Template and Assemble them. ----- ###
-###--------------------------------------------------------------###
+###---------------------------------------------------------###
 
 #--- Find out template and assemble them to executable code.
-    def templateAssemble(self):
+    def templateAssemble(self, modename):
+        modesuffix = '.' + str(modename)
         secnum = 0 # Initialize section counter
         for sec in self.tplseq:
             # Try to find out block template and assemble them to be child template
@@ -351,9 +354,9 @@ class xmltocode:
                 firsttpl = 'sensor.tpl' # One time translated main execute template
                 txtname = name + '.txt'
                 tplname = name + '.tpl'
-                exename = name + '.c'
+                exename = name + modesuffix
                 newexename = './Execute/' + self.nameseq[secnum] + '/' + exename
-                mainname = './Execute/' + self.nameseq[secnum] + '/' + 'main.c'
+                mainname = './Execute/' + self.nameseq[secnum] + '/' + 'main' + modesuffix
                 # Main execute file is special to handle and firstly we save data in sensor.txt
                 if tplnum == 0:
                     p = open(firstname, 'w')
@@ -382,7 +385,7 @@ class xmltocode:
                 os.rename(txtname, exename)
                 # Copy executable files to './Execute/'
                 shutil.copy(exename, newexename)
-                # If main execute file, change name to 'main.c'
+                # If main execute file, change name to 'main'
                 if tplnum == 0:
                     try:
                         os.rename(newexename, mainname)
@@ -392,7 +395,7 @@ class xmltocode:
             # Remove remaining files
             f_list = os.listdir('.')
             for i in f_list:
-                if os.path.splitext(i)[1] == '.c' or os.path.splitext(i)[1] == '.tpl':
+                if os.path.splitext(i)[1] == modesuffix or os.path.splitext(i)[1] == '.tpl':
                     try:
                         os.remove(i)
                     except OSError:
@@ -400,11 +403,34 @@ class xmltocode:
             secnum += 1
 
 
+###--------------------------------------------------------###
+### ----- Output a file of function level dictionary ----- ###
+###--------------------------------------------------------###
+
+#--- Find the function level dictionary and output the level verification file.
+    def levelVerify(self):
+        num = 0
+        for sec in self.tplseq:
+            # Initialize a level verification dictionary
+            verifydict = {'sensor':0,'anonymization':0,'encryption':0,'data_deletion':0,'verification':0,'domain':0}
+            # Find function name and modify the dictionary
+            for function in sec:
+                for key, value in leveldict.valuedict(function).items():
+                    verifydict[key] = value
+            # Save the dictionary as level verification file
+            filepath = './Execute/' + self.nameseq[num] + '/dict.json'
+            f = open(filepath, 'w')
+            f.write(str(verifydict))
+            f.close()
+            num += 1
+
+
 ## Execute
 if __name__ == '__main__':
     f = xmltocode()
-    # Read xml file in Eclipse Sirius.
+    # Read xml file in Eclipse Sirius
     f.readxml('/workdir/runtime-New_configuration/com.fukuda.kyudai.system.sample/My.system')
     f.lusTemptoC() # Translate Lustre file to C Code
-    f.templateAssemble() # Assemble Template to Executable C Code
+    f.templateAssemble('c') # Assemble Template to Executable C Code
+    f.levelVerify() # Generate level verification file
     print '--- Code Generating Complete! --- \n'
