@@ -1,9 +1,10 @@
 # Code-generator
-## 4 kinds of files in this program:
-* Main Program of Code Generator in Root Directory. <br />
+## 5 kinds of files in this program:
+* Main Program of Code Generator 'xmltocode.py' in Root Directory. <br />
+* Level Dictionary of each Function 'leveldict.py' in Root Directory. <br />
 * Template in "Template" Folder. <br />
 * Design files of Eclipse Sirius in "Sirius" Folder and Sample XML file in "XML" Folder. <br />
-* Generated files in "Execute" Folder <br />
+* Generated files in "Execute" Folder. <br />
 
 ## 3 kinds of Template:
 * Device and Function driver template. <br />
@@ -24,7 +25,7 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 * Please use Docker to execute main program. 
 
-## Changes from Code_Generator-#6:
+## Changes from Code_Generator-#7:
 * Modified driver template "local.tpl" and added function that check whether data is good or not. <br />
 &emsp; Modified line 58; Added line 55-56, 60-65 <br />
 <br />
