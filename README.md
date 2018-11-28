@@ -27,4 +27,6 @@
 ## Changes from Code_Generator-#6:
 * Modified main program 'xmltocode.py' for changing templateAssemble function to generate different kinds of code. <br />
 &emsp; Modified line 324, 355, 357, 410; Added line 325 <br />
-<br />
+* Added function in main program 'xmltocode' for outputing level verification files. <br />
+&emsp; Added line 406-425, 435 <br />
+* Added a level dictionary file 'leveldict.py' for finding level of each function. <br />
