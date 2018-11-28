@@ -25,6 +25,6 @@
 * Please use Docker to execute main progam. 
 
 ## Changes from Code_Generator-#6:
-*  <br />
-&emsp;  <br />
+* Modified main program 'xmltocode.py' for changing templateAssemble function to generate different kinds of code. <br />
+&emsp; Modified line 324, 355, 357, 410; Added line 325 <br />
 <br />
