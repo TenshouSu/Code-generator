@@ -403,7 +403,7 @@ class xmltocode:
 
 
 ###--------------------------------------------------------###
-### ----- Output a file of function level dictionary ----- ###
+### ----- Output a file of Function Level Dictionary ----- ###
 ###--------------------------------------------------------###
 
 #--- Find the function level dictionary and output the level verification file.
@@ -412,23 +412,48 @@ class xmltocode:
         text_data = '' #Initialize data
         for sec in self.tplseq:
             # Find function modename and idnmuber
+            subnum = 0
             for function in sec:
                 leveldata = leveldict.valuedict(function)
+                if subnum ==0 :
+                    titlename = leveldata['ModeName']
                 # Use jinja2 to assemble template
                 env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
                 template = env.get_template('leveldict_lus.tpl')
                 disp_text = template.render(leveldata)
                 disp_text += '\n\n'
                 text_data += disp_text
+                subnum += 1
             # Save the generated code as level verification lustre file
             filepath = './Execute/' + self.nameseq[num] + '/verify.txt'
-            newpath = './Execute/' + self.nameseq[num] + '/verify.lus'
+            newpath = './Execute/' + self.nameseq[num] + '/' + titlename + '_Verify.lus'
             f = open(filepath, 'w')
             f.write(text_data)
             f.close()
             os.rename(filepath, newpath)
             text_data = ''
             num += 1
+
+        # Copy user checklist to execute folder
+        oldpath = './leveldict.xlsx'
+        newpath = './Execute/User_Checklist.xlsx'
+        shutil.copy(oldpath, newpath)
+
+###-------------------------------------------###
+### ----- Generator of Checklist Reader ----- ###
+###-------------------------------------------###
+
+#--- Generate an excel file cheker
+    def checklistReader(self):
+        env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
+        template = env.get_template('xlsxchecker.tpl')
+        disp_text = template.render()
+        filepath = './Execute/User_Checklist.txt'
+        newfilepath = filepath = './Execute/User_Checklist.py'
+        f = open(filepath, 'w')
+        f.write(disp_text)
+        f.close()
+        os.rename(filepath, newfilepath)
 
 
 ## Execute
@@ -439,4 +464,5 @@ if __name__ == '__main__':
     f.lusTemptoC() # Translate Lustre file to C Code
     f.templateAssemble('c') # Assemble Template to Executable C Code
     f.levelVerify() # Generate level verification file
+    f.checklistReader() # Generate an excel file checker for user to generate lustre file
     print '--- Code Generating Complete! --- \n'
