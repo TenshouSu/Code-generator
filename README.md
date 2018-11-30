@@ -29,4 +29,6 @@
 
 ## Changes from Code_Generator-#8:
 * Modified main program 'xmltocode.py' for adding funciton of verification lustre file generator. <br />
-&emsp; Modified line line 412-430 <br />
+&emsp; Modified line 412-430; Added line 442-456, 467<br />
+* Added lustre template 'leveldict_lus.tpl' for generating verification list. <br />
+* Added driver template 'xlsxchecker.tpl' for user to verify generated files. <br />
