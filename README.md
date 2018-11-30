@@ -26,5 +26,5 @@
 * Please use Docker to execute main progam. 
 
 ## Changes from Code_Generator-#8:
-*  <br />
-&emsp;  <br />
+* Modified main program 'xmltocode.py' for adding funciton of verification lustre file generator. <br />
+&emsp; Modified line line 412-430 <br />
