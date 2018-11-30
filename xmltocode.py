@@ -8,7 +8,6 @@ import os
 import time
 import shutil
 from jinja2 import Template, Environment, FileSystemLoader
-import json
 import leveldict
 
 
@@ -404,25 +403,57 @@ class xmltocode:
 
 
 ###--------------------------------------------------------###
-### ----- Output a file of function level dictionary ----- ###
+### ----- Output a file of Function Level Dictionary ----- ###
 ###--------------------------------------------------------###
 
 #--- Find the function level dictionary and output the level verification file.
     def levelVerify(self):
         num = 0
+        text_data = '' #Initialize data
         for sec in self.tplseq:
-            # Initialize a level verification dictionary
-            verifydict = {'sensor':0,'anonymization':0,'encryption':0,'data_deletion':0,'verification':0,'domain':0}
-            # Find function name and modify the dictionary
+            # Find function modename and idnmuber
+            subnum = 0
             for function in sec:
-                for key, value in leveldict.valuedict(function).items():
-                    verifydict[key] = value
-            # Save the dictionary as level verification file
-            filepath = './Execute/' + self.nameseq[num] + '/dict.json'
+                leveldata = leveldict.valuedict(function)
+                if subnum ==0 :
+                    titlename = leveldata['ModeName']
+                # Use jinja2 to assemble template
+                env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
+                template = env.get_template('leveldict_lus.tpl')
+                disp_text = template.render(leveldata)
+                disp_text += '\n\n'
+                text_data += disp_text
+                subnum += 1
+            # Save the generated code as level verification lustre file
+            filepath = './Execute/' + self.nameseq[num] + '/verify.txt'
+            newpath = './Execute/' + self.nameseq[num] + '/' + titlename + '_Verify.lus'
             f = open(filepath, 'w')
-            f.write(str(verifydict))
+            f.write(text_data)
             f.close()
+            os.rename(filepath, newpath)
+            text_data = ''
             num += 1
+
+        # Copy user checklist to execute folder
+        oldpath = './leveldict.xlsx'
+        newpath = './Execute/User_Checklist.xlsx'
+        shutil.copy(oldpath, newpath)
+
+###-------------------------------------------###
+### ----- Generator of Checklist Reader ----- ###
+###-------------------------------------------###
+
+#--- Generate an excel file cheker
+    def checklistReader(self):
+        env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
+        template = env.get_template('xlsxchecker.tpl')
+        disp_text = template.render()
+        filepath = './Execute/User_Checklist.txt'
+        newfilepath = filepath = './Execute/User_Checklist.py'
+        f = open(filepath, 'w')
+        f.write(disp_text)
+        f.close()
+        os.rename(filepath, newfilepath)
 
 
 ## Execute
@@ -433,4 +464,5 @@ if __name__ == '__main__':
     f.lusTemptoC() # Translate Lustre file to C Code
     f.templateAssemble('c') # Assemble Template to Executable C Code
     f.levelVerify() # Generate level verification file
+    f.checklistReader() # Generate an excel file checker for user to generate lustre file
     print '--- Code Generating Complete! --- \n'

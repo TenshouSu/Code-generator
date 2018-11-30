@@ -21,13 +21,14 @@
 * pip & Jinja2 (Docker): <br />
 &emsp; https://qiita.com/RyosukeKamei/items/eca9687162b7fe122094 <br />
 &emsp; http://www.python.ambitious-engineer.com/archives/760 <br />
+* xlrd (Docker): <br />
+&emsp; https://pypi.org/project/xlrd/ <br />
 * Wiringpi library (Raspbeery Pi): <br />
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 * Please use Docker to execute main program. 
 
-## Changes from Code_Generator-#7:
-* Modified main program "xmltocode.py" for changing templateAssemble function to generate different kinds of code. <br />
-&emsp; Modified line 324, 355, 357, 410; Added line 325 <br />
-* Added function in main program "xmltocode" for outputing level verification files. <br />
-&emsp; Added line 406-425, 435 <br />
-* Added a level dictionary file "leveldict.py" for finding level of each function. <br />
+## Changes from Code_Generator-#8:
+* Modified main program 'xmltocode.py' for adding funciton of verification lustre file generator. <br />
+&emsp; Modified line 412-430; Added line 442-456, 467<br />
+* Added lustre template 'leveldict_lus.tpl' for generating verification list. <br />
+* Added driver template 'xlsxchecker.tpl' for user to verify generated files. <br />
