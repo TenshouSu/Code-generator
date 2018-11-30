@@ -416,7 +416,7 @@ class xmltocode:
                 leveldata = leveldict.valuedict(function)
                 # Use jinja2 to assemble template
                 env = Environment(loader=FileSystemLoader('./Template/'), trim_blocks=True)
-                template = env.get_template('leveldict.tpl')
+                template = env.get_template('leveldict_lus.tpl')
                 disp_text = template.render(leveldata)
                 disp_text += '\n\n'
                 text_data += disp_text
