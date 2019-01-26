@@ -27,8 +27,6 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 * Please use Docker to execute main program. 
 
-## Changes from Code_Generator-#8:
-* Modified main program 'xmltocode.py' for adding funciton of verification lustre file generator. <br />
-&emsp; Modified line 412-430; Added line 442-456, 467<br />
-* Added lustre template 'leveldict_lus.tpl' for generating verification list. <br />
-* Added driver template 'xlsxchecker.tpl' for user to verify generated files. <br />
+## The File of Casestudycode:
+* All Files in Case Study of Zou's Master Thesis are Saved in "Casestudycode" Folder <br />
+* You Can Execute "python xmltocode.py" to Complete the Code Generating.
