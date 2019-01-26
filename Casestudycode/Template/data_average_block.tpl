@@ -32,7 +32,10 @@ sum = accsum(uncon,sum)
                 avgnum = average(sum,avgcounter)
                 avgmsg = time.strftime("%Y-%m-%d %H:%M:%S:", time.localtime()) + ' Average of ' + 'Discomfort Index' + ' in ' + str(averagemax) + 's: ' + str(int(avgnum)) + '\n'
                 print time.strftime("%Y-%m-%d %H:%M:%S:", time.localtime()) + ' Average of ' + 'Discomfort Index' + ' in ' + str(averagemax) + 's: ' + str(int(avgnum))
-                file.write(avgmsg)
+                try:
+                    file.write(avgmsg)
+                except:
+                    pass
                 averagetime = 0
                 sum = 0
                 avgcounter = 0

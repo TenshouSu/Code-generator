@@ -3,6 +3,7 @@
 import RPi.GPIO as GPIO
 import time
 import os
+import verify
 #import ctypes
 {% raw -%}
 {% block google_driver_1 -%} {# ------content of block google_driver_1------ #}
@@ -137,7 +138,7 @@ def read_dht11_dat():
 
 def main():
     print "Raspberry Pi wiringPi DHT11 Start Running! \n"
-    verify = 1
+    veri = verify.verify()
     timecounter = 0.00
 
     {% raw -%}
@@ -152,7 +153,7 @@ def main():
     {% endblock %}
     {% endraw %}
 
-    while verify:
+    while veri:
         if timecounter == 0.00:
             timebegin = time.time()
             {% raw -%}

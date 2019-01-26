@@ -8,12 +8,14 @@ message2 =os.popen('lv6 Program_Identify.lus').readlines()
 if message2 == message :
     print ("pass")
     f = open ("verify.txt",'w+')
-    f.write("1")
+    msg = 'def verify():\n    return 1'
+    f.write(msg)
     f.close()
 else:
     print ("false")
     f = open ("verify.txt",'w+')
-    f.write("0")
+    msg = 'def verify():\n    return 0'
+    f.write(msg)
     f.close()
 
-os.rename('verify.txt','verify')
+os.rename('verify.txt','verify.py')
