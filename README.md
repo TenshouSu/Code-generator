@@ -27,6 +27,7 @@
 &emsp; http://osoyoo.com/2017/06/22/intall-wiringpi/ <br />
 * Please use Docker to execute main program. 
 
-## Changes from Code_Generator-#9:
-*  <br />
+## The File of Casestudycode:
+* All Files in Case Study of Zou's Master Thesis are Saved in "Casestudycode" Folder <br />
 &emsp;  <br />
+* You Can Execute "python xmltocode.py" to Complete the Code Generating.
