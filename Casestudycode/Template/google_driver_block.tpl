@@ -12,6 +12,10 @@ import google_driver
 nontxt = './log/log_' + str(int(timebegin))
             referpath = '/log_' + str(int(timebegin)) + '.txt'
             path = './log/log_' + str(int(timebegin)) + '.txt'
+            fpath = "./log"
+            folder = os.path.exists(fpath)
+            if not folder:
+                os.makedirs(fpath)
             file = open(path, 'w')
 {% raw -%}
 {% endblock %}
