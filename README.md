@@ -29,5 +29,4 @@
 
 ## The File of Casestudycode:
 * All Files in Case Study of Zou's Master Thesis are Saved in "Casestudycode" Folder <br />
-&emsp;  <br />
 * You Can Execute "python xmltocode.py" to Complete the Code Generating.
