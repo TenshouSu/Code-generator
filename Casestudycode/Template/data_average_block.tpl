@@ -18,7 +18,7 @@ def average(sum,avgcounter):
 avgcounter = 0
     sum = 0
     averagetime = -1
-    averagemax = 3600
+    averagemax = {{interval}}
 {% raw -%}
 {% endblock %}
 {% endraw %}
